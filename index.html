@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Nombre - Portafolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Opcional: Bootstrap o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Home -->
+    <section id="home">
+        <h1>Hola, soy <span>Tu Nombre</span></h1>
+        <p>Desarrollador Web | Diseñador UX</p>
+        <a href="#projects" class="btn">Ver mis proyectos</a>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="about">
+        <h2>Sobre Mí</h2>
+        <p>Aquí va tu descripción profesional, habilidades y experiencia.</p>
+        <!-- Ejemplo de habilidades -->
+        <div class="skills">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="projects">
+        <h2>Mis Proyectos</h2>
+        <div class="project-grid">
+            <!-- Ejemplo de tarjeta de proyecto -->
+            <div class="project-card">
+                <img src="assets/img/proyecto1.jpg" alt="Proyecto 1">
+                <h3>Landing Page</h3>
+                <p>Descripción breve del proyecto.</p>
+                <a href="#" class="btn">Ver más</a>
+            </div>
+            <!-- Repetir para otros proyectos -->
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contact">
+        <h2>Contacto</h2>
+        <form action="https://formspree.io/f/tu-email" method="POST">
+            <input type="text" name="name" placeholder="Nombre" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Mensaje" required></textarea>
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+        <!-- Redes Sociales -->
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

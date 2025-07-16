@@ -8,10 +8,80 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <style>
-        /* Estilos para el botón de volver */
+        /* Reset de estilos para las secciones problemáticas */
+        #wrapper .intro,
+        #wrapper .intro * {
+            all: initial;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Estructura básica realineada */
+        #wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .intro {
+            display: block;
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .intro header {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro header h2 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin: 0 0 20px 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .intro .content {
+            display: block;
+        }
+        
+        .intro .content p {
+            margin: 0 0 1rem 0;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        .feature-icons {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .feature-icons li {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1rem;
+        }
+        
+        .feature-icons li .icon {
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+            color: #4CAF50;
+            font-size: 1.2rem;
+        }
+        
+        /* Botón de volver mejorado */
         .boton-volver {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #f44336;
             color: white;
             text-decoration: none;
@@ -22,61 +92,19 @@
             bottom: 20px;
             right: 20px;
             z-index: 1000;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
         
         .boton-volver:hover {
             background-color: #d32f2f;
         }
         
-        /* Ajustes para las secciones */
-        #wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .intro {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 40px;
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .intro header {
-            order: 1; /* Asegura que el header va primero */
-            margin-bottom: 1.5rem;
-        }
-        
-        .intro header h2 {
-            color: #333;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        
-        .intro .content {
-            order: 2; /* Asegura que el contenido va después */
-        }
-        
-        .feature-icons {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .feature-icons li {
-            margin-bottom: 0.8rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-        
-        .feature-icons li .icon {
-            position: absolute;
-            left: 0;
-            top: 0.2rem;
-            color: #4CAF50;
+        /* Reset específico para elementos strong */
+        strong {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -101,33 +129,33 @@
             <div class="content">
                 <p><strong>Técnicas</strong></p>
                 <ul class="feature-icons">
-                    <li class="icon solid fa-code">Programación</li>
-                    <li class="icon solid fa-laptop-code">Desarrollo Web</li>
-                    <li class="icon solid fa-database">Base de Datos</li>
-                    <li class="icon solid fa-calculator">Analisis Matematíco</li>
+                    <li><i class="icon solid fa-code"></i> Programación</li>
+                    <li><i class="icon solid fa-laptop-code"></i> Desarrollo Web</li>
+                    <li><i class="icon solid fa-database"></i> Base de Datos</li>
+                    <li><i class="icon solid fa-calculator"></i> Analisis Matematíco</li>
                 </ul>
                 
                 <p><strong>Blandas</strong></p>
                 <ul class="feature-icons">
-                    <li class="icon solid fa-handshake">Responsabilidad</li>
-                    <li class="icon solid fa-heart">Empatico</li>
-                    <li class="icon solid fa-balance-scale">Comunicación Asertiva</li>
-                    <li class="icon solid fa-random">Adaptabilidad</li>
+                    <li><i class="icon solid fa-handshake"></i> Responsabilidad</li>
+                    <li><i class="icon solid fa-heart"></i> Empatico</li>
+                    <li><i class="icon solid fa-balance-scale"></i> Comunicación Asertiva</li>
+                    <li><i class="icon solid fa-random"></i> Adaptabilidad</li>
                 </ul>
                 
                 <p><strong>Analiticas</strong></p>
                 <ul class="feature-icons">
-                    <li class="icon solid fa-chart-line">Pensamiento Analitico</li>
-                    <li class="icon solid fa-search">Investigación</li>
-                    <li class="icon solid fa-brain">Pensamiento Critíco</li>
-                    <li class="icon solid fa-cogs">Resolución de Problemas</li>
-                    <li class="icon solid fa-project-diagram">Pensamiento Logíco</li>
+                    <li><i class="icon solid fa-chart-line"></i> Pensamiento Analitico</li>
+                    <li><i class="icon solid fa-search"></i> Investigación</li>
+                    <li><i class="icon solid fa-brain"></i> Pensamiento Critíco</li>
+                    <li><i class="icon solid fa-cogs"></i> Resolución de Problemas</li>
+                    <li><i class="icon solid fa-project-diagram"></i> Pensamiento Logíco</li>
                 </ul>
             </div>
         </section>
     
-        <!-- Botón para volver al inicio -->
         <a href="index.html" class="boton-volver">Volver al Inicio</a>
+
     </div>
 </body>
 </html>

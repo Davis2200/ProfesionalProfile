@@ -3228,6 +3228,50 @@ ul.feature-icons li a.boton-about:hover .icon {
     }
 }
 
+/* Feature Icons - Estilo alineado */
+ul.feature-icons {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+ul.feature-icons li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+
+ul.feature-icons li .icon {
+    font-size: 1rem;
+    color: #555; /* Color discreto */
+    min-width: 1.25rem; /* Espacio fijo para alinear iconos */
+    text-align: center;
+}
+
+/* Estilo para iconos sólidos (si usas fa-solid) */
+ul.feature-icons li .icon.solid {
+    font-weight: 900;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    ul.feature-icons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    ul.feature-icons {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* Wrapper */
 

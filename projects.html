@@ -15,12 +15,13 @@
 
             <header>
                 <h2>Proyectos</h2>
+                    <h3>Modelos de predicción</h3>
+                    <h3>Modelos de analísis</h3>
+                    <h3>Sociales</h3>
             </header>
 
             <div class="content">
-                <h3>Modelos de predicción</h3>
-                <h3>Modelos de analísis</h3>
-                <h3>Sociales</h3>
+                <span class="image fill" data-position="center"><img src="assets/images/foto-projects.jpg" alt=""></span>
             </div>
             
         </section>
@@ -28,18 +29,23 @@
 
         <section>
             <header>
-                <h3><strong>Mi primer modelo de predicción</strong></h3>
+                <h3><strong>Modelos de predicción</strong></h3>
             </header>
 
             <div class="content">
                 
                 <p>
                     <strong>Stat Lab</strong>
-                    Como parte de mi formación academica en ciencia de datos, he participado en un proyecto 
-                    solicitado por mi profesor Mario de Programación para Ciencia de Datos el cual no ha solicitado
-                    que mediante un programa en Python, se realice un analisis de datos de un conjunto de datos, 
-                    el tema lo ha dejado libre, por lo que decidí hacer una proyección de la cantidad de puntos, asistencias y rebotes que hacía
-                    un jugador de la NBA por temporada, para este programa utilice las librerias de Pandas, Scikit-Learn, Matlolib,
+                    Como parte de la materia Programación para ciencia de datos el profesor Mario dejo un proyecto para Ciencia de Datos y coloco los siguietes requerimentos: 
+                    1. Se realice un analisis de datos de un conjunto de datos.
+                    2. Tema libre.
+                    3. Se realice una predicción de un conjunto de datos. 
+                    Debido decidi crear un programa llamado <strong>
+                        The Sixth StatMan
+                    </strong> dentro de un programa llamado Stat Lab, the sixth statman tiene como objetivo realizar una proyección de la cantidad de puntos, asistencias y rebotes que hace
+                    un jugador de la NBA por temporada. El motivo de crear este programa es aprovechar el crecimiento del mundo de las apuestas
+                    ya que expertos dicen que para 2024 tiene un valor de USD 17.94 billion y prospectan un crecimiento de 10.9% entre 2025 y 2030.(<a> href="https://www.grandviewresearch.com/industry-analysis/us-sports-betting-market-report"</a>)
+                    Para este programa utilice las librerias de Pandas, Scikit-Learn, Matlolib,
                     NumPy y Seaborn, con las cuales pude raizar una regresión no lineal, basada en arboles de decisión ya que al solicitar distintas
                     variables se convierte en multisalida lo cual se ajusta perfecto al modelo de arboles de decisión. Todos los datos 
                     con los que se realizo el estudio fueron de origen publico y consultados con mismos datos publicos. 
@@ -54,19 +60,70 @@
             </header>
 
             <div class="content">
-                    <span class="image fill" data-position="center"><img src="assets/images/foto-sobre-mi" alt=""></span>
+                <p>
+                    El set de datos utilizado para este proyecto fue recuperado de un estudio realizado en kaggle, <a href="https://www.kaggle.com/datasets/loganlauton/nba-players-and-team-data?select=NBA+Player+Box+Score+Stats%281950+-+2022%29.csv">
+                        NBA PLAYERS AND TEAM DATA</a>, al observar el set de datos nos damos cuenta que contiene valores 
+                        faltantes, nulos y en otro formato el cual no se ajusta al estudio que se quiere realizar. Ademas el set de datos 
+                        es demasiado grande pues contiene datos desde 1950 hasta 2023.
+                    </a>
+
+                </p>
+                    <span class="image fill" data-position="center"><img src="assets/images/set-datos-stat-lab.png" alt=""></span>
+            </div>
+        </section>
+
+        <section>
+            <header>
+                <h2>Limpieza y filtrado de datos</h2>
+            </header>
+
+            <div class="content">
+                <p>
+                    Despues de observar que el set de datos contenia valores nulos, faltantes y en otro formato, 
+                    decidimos que lo mejor seria acortar el set de datos para tener la perspectiva de hoy en dia, 
+                    por ello hicimos un filtrado de datos en el cual solo se seleccionaron las temporadas de 1990 a 2023,
+                    posterior a esto se seleccionaron las columnas adecuadas para el estudio como lo son: <ul>
+                        <li>Nombre del jugador (PLAYER_NAME)</li>
+                        <li>Minutos jugados (MIN)</li>
+                        <li>Tiros de Campo intentados (FGA)</li>
+                        <li>Tiros de Campo anotados (FGM)</li>
+                        <li>Porcentaje de tiros de campo (FG_PCT)</li>
+                        <li>Triples intentados (FGA_3A)</li>
+                        <li>Triples anotados (FG_3M)</li>
+                        <li>Porcentaje de triples (FG3_PCT)</li>
+                        <li>Tiros libres intentados (FTA)</li>
+                        <li>Tiros libres anotados (FTM)</li>
+                        <li>Porcentaje de tiros libres (FT_PCT)</li>
+                        <li>Rebotes ofensivos (OREB)</li>
+                        <li>Rebotes defensivos (DREB)</li>
+                        <li>Rebotes totales (REB)</li>
+                        <li>Asistencias (AST)</li>
+                        <li>Robos (STL)</li>
+                        <li>Puntos (PTS)</li>
+                        <li>Equipo (Team)</li>
+                        <li>Enfrentamiento (MATCHUP)</li>
+                        <li>Resultado (WL)</li>
+                        <li>Temporada</li>
+                    </ul>
+
+                    Para finalizar hicimos el cambio de formato en la columna resultado ya que venia en formato de texto 
+                    lo que hicimos fue cambiarlo a formato binario donde 1 es victoria y 0 es derrota, 
+                    de esta forma podemos insertar los datos en un modelo de regresión no lineal.
+
+
+                </p>
+                    <span class="image fill" data-position="center"><img src="assets/images/limpieza-y-filtrado-de-datos-stat-lab.png" alt=""></span>
             </div>
         </section>
 
         <section>
             <header>
                 <h2>
-
+                    <a href="index.html" class="boton-volver">Volver al Inicio</a>
                 </h2>
             </header>
             <div class="content">
 
-                <a href="index.html" class="boton-volver">Volver al Inicio</a>
             </div>
         </section>
     </div>

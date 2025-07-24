@@ -85,8 +85,8 @@
             <div class="content">
                 <p>
                     Despues de observar que el set de datos contenia valores nulos, faltantes y en otro formato, 
-                    decidimos que lo mejor seria acortar el set de datos para tener la perspectiva de hoy en dia, 
-                    por ello hicimos un filtrado de datos en el cual solo se seleccionaron las temporadas de 1990 a 2023,
+                    decidimos que lo mejor seria acortar el set de datos para tener datos mas actuales, relevantes y confiables, 
+                    por ello hicimos un filtrado en el cual solo se seleccionaron las temporadas de 1990 a 2023,
                     posterior a esto se seleccionaron las columnas adecuadas para el estudio como lo son: <ul class="lista-dos-columnas">
                         <li>Nombre del jugador (PLAYER_NAME)</li>
                         <li>Minutos jugados (MIN)</li>
@@ -108,7 +108,7 @@
                         <li>Equipo (Team)</li>
                         <li>Enfrentamiento (MATCHUP)</li>
                         <li>Resultado (WL)</li>
-                        <li>Temporada</li>
+                        <li>Temporada (Season)</li>
                     </ul>
 
                     Para finalizar hicimos el cambio de formato en la columna resultado ya que venia en formato de texto 
@@ -130,29 +130,69 @@
 
         <section>
             <header>
-                <h2>Procedimiento de filtrado</h2>
+                <h2>Agrupamiento de datos</h2>
             </header>
             <div class="content">
                 <p>
-                    El procedimiento de agrupamiento se realizo por jugador y temporada, 
-                    posteriormenete con estos datos agruopados podemos ver el desempeño de un jugador durante una temporada, 
-                    despues se agruparon los promedios de cada jugador a lo largo de las temporadas para ver el comportamiento
-                    y por que el modelo de arboles de decisión es el mas adecuado para este tipo de datos.
+                    Una vez limpios y segur de que se pueden utilizar los datos, agrupamos los datos por jugador en una temporada,
+                    podemos observalos en una grafica de lineas para ver el comportamiento de cada jugador en una temporada.
                 </p><div class="content">
                     <span class="image-container" data-position="center"><img src="assets/images/desempeño-jugador-temporada.png"></span>
                 </div><p>Seleccionamos Stephen Curry y como podemos observar su temporada esta llena de picos y caidas
-                    por lo que una regresión lineal no seria del todo una buena idea. Despues de esto lo que realizamos es sacar los promedios
-                    de cada jugador por temporada y evaluar como se comportan.</p>
+                    por lo que una regresión lineal no seria del todo una buena idea.</p>
             </div>
         </section>
         <section>
             <header>
                 <h2>
-                    
+                    Procesamiento de datos
                 </h2>
             </header>
             <div class="content">
-                <a href="index.html" class="boton-volver">Volver al Inicio</a>
+                <p>
+                    Una ves que tenemos los datos agrupados podemos
+                    obtener los promedios de cada jugador en todas las estadisticas por temporada.
+                </p><div></div class="content"><span class="image-container" data-position="center"><img src="assets/images/promedios-temporada.png"></span></div>
+                <p>Calculamos la desviacion estandar de cada estadistica par ver  tan dispersos estan los datos de un jugador en especifico
+                    por ejemplo: Stephen Curry, quien en 2023 tuvo una desviacion estandar de mas menos 8.28 puntos y por ejemplo 
+                    en 2022 tuvo una desviación estandar de mas menos 10.11 puntos.</p><div><span class="image-container" data-position="center"><img src="assets/images/desviacion-estandar-temporada.png"></span></div>
+                
+                <p>Con esto podemos tener una idea mediocre de cual sera el promedio que hara en la temporada 2024.</p>
+            </div>
+            <div class="content">
+                <p>
+                    Ahora al tener los datos en agrupados por jugador y temporada podemos realizar una 
+                    regresión no lineal, para ello dividimos el set de datos que usaremos para trabajar en dos
+                    partes, una sera el set de entrenamiento y la otra sera el set de prueba, recordemos que el tamaño 
+                    para la prueba es del 20% y el entrenamiento del 80%. Con esto podemos realizar una función 
+                    de random forest regressor con multisalida, la cual nos permite calcular los puntos, asistencias y rebotes 
+                    al mismo tiempo, de sta forma podemos obtener una respuesta mas precisa y confiable.
+                </p><div class="content"><span class="image-container" data-position="center"><img src="assets/images/resultado-entrenamiento.png"></span></div>
+                <p>
+                    En esta grafica podemos observar el resultado del entrenamiento donde nos dice que para la temporada 
+                    2024 Stephen Curry tendra un promedio de 26.1 puntos, 5.6 asistencias y 5.8 rebotes. El cual si lo comparamos con la realidad 
+                    es que podriamos decir que es un muy buen resultado puesto que Curry para esa temporada promedio 26.4 puntos, 5.1 asistencias y 4.8 rebotes.
+                </p>
+            </div>
+
+            <div class="content">
+                <p>
+                    Ahora hacemos la función para la prueba y dentro de ella incluimos el error cuadratico medio para saber
+                    cuanto es que falla el resultado.
+                </p><div class="content">
+                <span class="image-container" data-position="center"><img src="assets/images/resultado-prueba.png"></span></div>
+                <p>
+                    Podemos obervar que los resultados de la prueba son muy similares a los resultados del entrenmiento
+                    puesto que para los puntos predice 28.4 para las asistencias 5.5 y para los rebotes 5.7.
+                </p>
+                <p>
+                    Ahora podemos observar la grafica del error cuadrático medio, donde podemos ver que las asistencias
+                    tienen el error mayor mientras que los rebotes tienen el menor.
+                </p><div class="content"><span class="image-container" data-position="center"><img src="assets/images/mse-prueba.png"></span></div>
+                <p>
+                    Si compramos los resultados de la prueba con los resultados reales podemos ver que el error cuadratico medio mayor 
+                    es el que mas se acerca a la realidad mientras que el error cuadratico medio menor es el que mas se aleja de la realidad.
+                </p>
             </div>
         </section>
     </div>

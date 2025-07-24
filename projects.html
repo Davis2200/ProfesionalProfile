@@ -137,7 +137,7 @@
                     Una vez limpios y segur de que se pueden utilizar los datos, agrupamos los datos por jugador en una temporada,
                     podemos observalos en una grafica de lineas para ver el comportamiento de cada jugador en una temporada.
                 </p><div class="content">
-                    <span class="image-container" data-position="center"><img src="assets/images/desempeño-jugador-temporada.png"></span>
+                    <span class="image-container" data-position="center"><img src="assets/images/desempeño-jugador-temporada.png" alt="" style="width: 100%; height:auto; object-fit:contain"></span>
                 </div><p>Seleccionamos Stephen Curry y como podemos observar su temporada esta llena de picos y caidas
                     por lo que una regresión lineal no seria del todo una buena idea.</p>
             </div>
@@ -148,39 +148,39 @@
                     Procesamiento de datos
                 </h2>
             </header>
-            <div class="content">
-                <p>
+                <div class="content">
+                    <p>
                     Una ves que tenemos los datos agrupados podemos
                     obtener los promedios de cada jugador en todas las estadisticas por temporada.
-                </p><div></div class="content"><span class="image-container" data-position="center"><img src="assets/images/promedios-temporada.png"></span></div>
-                <p>Calculamos la desviacion estandar de cada estadistica par ver  tan dispersos estan los datos de un jugador en especifico
+                    </p><div></div class="content"><span class="image-container" data-position="center"><img src="assets/images/promedios-temporada.png" alt="" style="width: 100%; height:auto; object-fit:contain"></span></div>
+                    <p>Calculamos la desviacion estandar de cada estadistica par ver  tan dispersos estan los datos de un jugador en especifico
                     por ejemplo: Stephen Curry, quien en 2023 tuvo una desviacion estandar de mas menos 8.28 puntos y por ejemplo 
-                    en 2022 tuvo una desviación estandar de mas menos 10.11 puntos.</p><div><span class="image-container" data-position="center"><img src="assets/images/desviacion-estandar-temporada.png"></span></div>
+                    en 2022 tuvo una desviación estandar de mas menos 10.11 puntos.</p><div><span class="image-container" data-position="center"><img src="assets/images/desviacion-estandar-temporada.png" alt="" style="width: 100%; height:auto; object-fit:contain"></span></div>
                 
-                <p>Con esto podemos tener una idea mediocre de cual sera el promedio que hara en la temporada 2024.</p>
-            </div>
-            <div class="content">
-                <p>
+                    <p>Con esto podemos tener una idea mediocre de cual sera el promedio que hara en la temporada 2024.</p>
+                </div>
+                <div class="content">
+                    <p>
                     Ahora al tener los datos en agrupados por jugador y temporada podemos realizar una 
                     regresión no lineal, para ello dividimos el set de datos que usaremos para trabajar en dos
                     partes, una sera el set de entrenamiento y la otra sera el set de prueba, recordemos que el tamaño 
                     para la prueba es del 20% y el entrenamiento del 80%. Con esto podemos realizar una función 
                     de random forest regressor con multisalida, la cual nos permite calcular los puntos, asistencias y rebotes 
                     al mismo tiempo, de sta forma podemos obtener una respuesta mas precisa y confiable.
-                </p><div class="content"><span class="image-container" data-position="center"><img src="assets/images/resultado-entrenamiento.png"></span></div>
-                <p>
+                    </p><div class="content"><span class="image-container" data-position="center"><img src="assets/images/resultado-entrenamiento.png" alt="" style="width: 100%; height:auto; object-fit:contain"></span></div>
+                    <p>
                     En esta grafica podemos observar el resultado del entrenamiento donde nos dice que para la temporada 
                     2024 Stephen Curry tendra un promedio de 26.1 puntos, 5.6 asistencias y 5.8 rebotes. El cual si lo comparamos con la realidad 
                     es que podriamos decir que es un muy buen resultado puesto que Curry para esa temporada promedio 26.4 puntos, 5.1 asistencias y 4.8 rebotes.
-                </p>
-            </div>
+                    </p>
+                </div>
 
             <div class="content">
                 <p>
                     Ahora hacemos la función para la prueba y dentro de ella incluimos el error cuadratico medio para saber
                     cuanto es que falla el resultado.
                 </p><div class="content">
-                <span class="image-container" data-position="center"><img src="assets/images/resultado-prueba.png"></span></div>
+                <span class="image-container" data-position="center"><img src="assets/images/resultado-prueba.png" alt="" style="width: 100%; height:auto; object-fit:contain"></span></div>
                 <p>
                     Podemos obervar que los resultados de la prueba son muy similares a los resultados del entrenmiento
                     puesto que para los puntos predice 28.4 para las asistencias 5.5 y para los rebotes 5.7.
@@ -188,7 +188,7 @@
                 <p>
                     Ahora podemos observar la grafica del error cuadrático medio, donde podemos ver que las asistencias
                     tienen el error mayor mientras que los rebotes tienen el menor.
-                </p><div class="content"><span class="image-container" data-position="center"><img src="assets/images/mse-prueba.png"></span></div>
+                </p><div class="content"><span class="image-container" data-position="center"><img src="assets/images/mse-prueba.png" alt="" style="width: 100%; height:auto; object-fit:contain"></span></div>
                 <p>
                     Si compramos los resultados de la prueba con los resultados reales podemos ver que el error cuadratico medio mayor 
                     es el que mas se acerca a la realidad mientras que el error cuadratico medio menor es el que mas se aleja de la realidad.

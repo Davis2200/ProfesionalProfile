@@ -29,7 +29,7 @@
 
         <section>
             <header>
-                <h3><strong>Modelos de predicción</strong></h3>
+                <h2><strong>Modelo de predicción</strong></h2>
             </header>
 
             <div class="content">
@@ -44,7 +44,7 @@
                         The Sixth StatMan
                     </strong> dentro de un programa llamado Stat Lab, the sixth statman tiene como objetivo realizar una proyección de la cantidad de puntos, asistencias y rebotes que hace
                     un jugador de la NBA por temporada. El motivo de crear este programa es aprovechar el crecimiento del mundo de las apuestas
-                    ya que expertos dicen que para 2024 tiene un valor de USD 17.94 billion y prospectan un crecimiento de 10.9% entre 2025 y 2030.(<a href="https://www.grandviewresearch.com/industry-analysis/us-sports-betting-market-report" class="boton-icono">https://www.grandviewresearch.com/industry-analysis/us-sports-betting-market-report</a>)
+                    ya que expertos dicen que para 2024 tiene un valor de USD 17.94 billion y prospectan un crecimiento de 10.9% entre 2025 y 2030(<a href="https://www.grandviewresearch.com/industry-analysis/us-sports-betting-market-report" class="boton-icono">https://www.grandviewresearch.com/industry-analysis/us-sports-betting-market-report</a>).
                     Para este programa utilice las librerias de Pandas, Scikit-Learn, Matlolib,
                     NumPy y Seaborn, con las cuales pude raizar una regresión no lineal, basada en arboles de decisión ya que al solicitar distintas
                     variables se convierte en multisalida lo cual se ajusta perfecto al modelo de arboles de decisión. Todos los datos 
@@ -113,7 +113,8 @@
 
                     Para finalizar hicimos el cambio de formato en la columna resultado ya que venia en formato de texto 
                     lo que hicimos fue cambiarlo a formato binario donde 1 es victoria y 0 es derrota, 
-                    de esta forma podemos insertar los datos en un modelo de regresión no lineal.
+                    de esta forma podemos insertar los datos en un modelo de regresión no lineal,
+                    tambien agrupamos los datos para un solo jugador por temporada y añadimos el numero de juegos por temporada.
 
 
                 </p>
@@ -126,14 +127,31 @@
             </div>
         </section>
 
+
+        <section>
+            <header>
+                <h2>Procedimiento de filtrado</h2>
+            </header>
+
+            <p>
+                El procedimiento de agrupamiento se realizo por jugador y temporada, 
+                posteriormenete con estos datos agruopados podemos ver el desempeño de un jugador durante una temporada, 
+                despues se agruparon los promedios de cada jugador a lo largo de las temporadas para ver el comportamiento
+                y por que el modelo de arboles de decisión es el mas adecuado para este tipo de datos.
+            </p><div class="content">
+                <span class="image-container" data-position="center"><img src="assets/images/desempeño-jugador-temporada.png"></span>
+            </div><p>Seleccionamos Stephen Curry y como podemos observar su temporada esta llena de picos y caidas
+                por lo que una regresión lineal no seria del todo una buena idea. Despues de esto lo que realizamos es sacar los promedios
+            de cada jugador por temporada y evaluar como se comportan.</p>
+        </section>
         <section>
             <header>
                 <h2>
-                    <a href="index.html" class="boton-volver">Volver al Inicio</a>
+                    
                 </h2>
             </header>
             <div class="content">
-
+                <a href="index.html" class="boton-volver">Volver al Inicio</a>
             </div>
         </section>
     </div>

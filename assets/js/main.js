@@ -204,5 +204,32 @@
 						}, 275);
 
 					});
+					// Dynamic Content Loading (NUEVO CÓDIGO)
+						$(document).ready(function() {
+			
+						// Función para cargar contenido
+						function loadContent(page) {
+						$('#content-container').load(page + ' body > *', function(response, status, xhr) {
+							if (status == "error") {
+								console.error("Error loading page: ", xhr.status, xhr.statusText);
+							} else {
+								// Re-inicializa componentes después de cargar nuevo contenido
+								$body.removeClass('is-preload');
+								if (browser.name == 'ie') $body.addClass('is-ie');
+								if (browser.mobile) $body.addClass('is-mobile');
+								$('.scrolly').scrolly({ offset: 100 });
+							}
+						});
+					}
+
+					// Manejar clics en los botones
+					$(document).on('click', '[data-page]', function(e) {
+						e.preventDefault();
+						loadContent($(this).data('page'));
+					});
+
+					// Carga inicial (opcional)
+					// loadContent('about.html');
+			});
 
 })(jQuery);

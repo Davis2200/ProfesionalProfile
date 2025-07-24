@@ -3944,5 +3944,5 @@ ul.feature-icons li .icon.solid {
 	.lista-dos-columnas {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px; /* espacio entre columnas */
+    gap: 20px; /* espacio entre columnas */
 	}

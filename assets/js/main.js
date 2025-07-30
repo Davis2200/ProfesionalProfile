@@ -204,32 +204,73 @@
 						}, 275);
 
 					});
-					// Dynamic Content Loading (NUEVO CÓDIGO)
-						$(document).ready(function() {
+
+	// Dynamic Content Loading - Versión mejorada
+	$(document).ready(function() {
+		// Contenedor para el contenido dinámico
+		var $dynamicContent = $('#dynamic-content');
+		
+		// Función mejorada para cargar contenido
+		function loadContent(page) {
+			// Mostrar indicador de carga
+			$dynamicContent.html('<div class="loading">Cargando...</div>');
 			
-						// Función para cargar contenido
-						function loadContent(page) {
-						$('#content-container').load(page + ' body > *', function(response, status, xhr) {
-							if (status == "error") {
-								console.error("Error loading page: ", xhr.status, xhr.statusText);
-							} else {
-								// Re-inicializa componentes después de cargar nuevo contenido
-								$body.removeClass('is-preload');
-								if (browser.name == 'ie') $body.addClass('is-ie');
-								if (browser.mobile) $body.addClass('is-mobile');
-								$('.scrolly').scrolly({ offset: 100 });
-							}
-						});
-					}
-
-					// Manejar clics en los botones
-					$(document).on('click', '[data-page]', function(e) {
-						e.preventDefault();
-						loadContent($(this).data('page'));
-					});
-
-					// Carga inicial (opcional)
-					// loadContent('about.html');
+			// Cargar el contenido
+			$.ajax({
+				url: page,
+				dataType: 'html',
+				success: function(data) {
+					// Parsear el HTML recibido
+					var $parsed = $('<div>').html(data);
+					// Extraer solo el contenido del wrapper
+					var content = $parsed.find('#wrapper').html();
+					
+					// Insertar el contenido
+					$dynamicContent.html(content);
+					
+					// Re-inicializar componentes necesarios
+					$body.removeClass('is-preload');
+					if (browser.name == 'ie') $body.addClass('is-ie');
+					if (browser.mobile) $body.addClass('is-mobile');
+					$('.scrolly').scrolly({ offset: 100 });
+					
+					// Scroll suave al contenido cargado
+					$('html, body').animate({
+						scrollTop: $dynamicContent.offset().top
+					}, 500);
+				},
+				error: function(xhr, status, error) {
+					console.error("Error loading page: ", status, error);
+					$dynamicContent.html('<div class="error">Error al cargar el contenido. Por favor intenta nuevamente.</div>');
+				}
 			});
+		}
+
+		// Manejar clics en los botones de navegación
+		$(document).on('click', '.load-content', function(e) {
+			e.preventDefault();
+			var page = $(this).data('page');
+			loadContent(page);
+			
+			// Actualizar el historial del navegador
+			history.pushState({ page: page }, '', page);
+		});
+		
+		// Manejar el botón de retroceso/avance del navegador
+		$(window).on('popstate', function(e) {
+			if (e.originalEvent.state && e.originalEvent.state.page) {
+				loadContent(e.originalEvent.state.page);
+			} else {
+				// Si no hay estado, mostrar la página inicial
+				$dynamicContent.empty();
+			}
+		});
+		
+		// Opcional: Cargar contenido inicial basado en la URL
+		var initialPage = window.location.pathname.split('/').pop();
+		if (initialPage !== 'index.html' && initialPage !== '') {
+			loadContent(initialPage);
+		}
+	});
 
 })(jQuery);

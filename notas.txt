@@ -49,3 +49,103 @@
         </section>
 
         <!-- Más secciones (Proyectos, Contacto) -->
+
+
+
+
+
+
+        ------------------------------------------------------------------------------------------------------------------
+
+    sobre mi html copia
+
+
+        <!--Sobre mi-->
+        
+        <section class="intro">
+            <header>
+                <h1>Davis N</h1>
+                <p>
+                    Apasionado, Carismatico y con ganas de aprender.
+                </p>
+
+            </header></header>
+            <div class="content">
+                <span class="image fill" data-position="center"><img src="assets/images/foto-sobre-mi.jpg" alt=""></span>
+            </div>
+
+        </section>
+
+        <section>
+            <header>
+                <h2>Sobre Mí</h2>
+            </header>
+            <div class="content">
+                <p><strong>¡Hola!</strong> Soy David Nava Aguilar y soy un estudiante de Ciencia de Datos,
+                    actualmente curso el quinto semestre, 
+                    orgullosamente en el Instituto Politécnico Nacional, donde además de estudiar, 
+                    practico baloncesto como un hábito para fortalecer la disciplina en mi persona, 
+                    ya que considero que esta es la clave del éxito profesional.</p>
+            </div>
+        </section>
+
+        <section>
+            <header>
+                <h2>Mi Filosofía</h2>
+            </header>
+            <div class="content">
+                <p>
+                    <strong>Mi filosifía</strong> de vida se basa en la disciplina, el esfuerzo, la perseverancia,
+                    la responsabilidad y la empatía. Creo firmemente que las condiciones de vida
+                    no tienen en absoluto que ver con el exito de una persona, 
+                    sino que todo se basa en la actitud que se tenga ante las situciones que se presenten.
+                    Claro que tambien debemos de reconocer cuando uno no puede contra la situación y pedir ayuda, 
+                    pues un punto de vista diferente al tuyo puede ser la clave para resolver un problema. 
+                </p>
+            </div>
+
+        </section>
+
+        <section>
+            <header>
+                <h2>Objetivos</h2>
+            </header>
+
+            <div class="content">
+                <p>
+                    <strong>Mis objetivos a corto y mediano plazo son:</strong>
+                    <ul>
+                        <li>Concluir la licenciatura en cienca de datos</li>
+                        <li>Realizar un maestria en Ciencia de Datos y Estdistica Aplicada</li>
+                        <li>Realizar un posgrado en Analitica de Datos para negocios</li>
+                        
+                    </ul>
+                </p>
+
+                <p>
+                    <strong> Mis objetivos a largo plazo son:</strong>
+                    <ul>
+                        <li>Realizar un doctorado en Ciencia de Datos</li>
+                        <li>Ser un cientifico de datos reconocido</li>
+                        
+                    </ul>
+                </p>
+
+            </div>
+        </section>
+
+        <section>
+
+            <header>
+                <h2>Siendo yo</h2>
+            </header>
+            <div class="content">
+                <p> <strong>Me considero</strong> una persona agradable dentro de lo que cabe 
+                    siempre intento ser amable y respetuosos con las demas personas. Siempre he creido 
+                    que el esfuerzo y la disciplina son claves fundamentales para alcanzar la plenitud que deseo
+                    en mi vidapor lo que siempre trato de estar aprendiendo de todo y de todos.  
+                </p>
+                <a href="index.html" class="boton-volver">Volver al Inicio</a>
+            </div>
+        </section>
+    </div>

@@ -3946,3 +3946,118 @@ ul.feature-icons li .icon.solid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px; /* espacio entre columnas */
 	}
+/* Barras de Progreso - Adaptado a tu estilo */
+.skills-container {
+  margin: 2rem 0;
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-family: "Raleway", Helvetica, sans-serif;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: #000000;
+  font-size: 0.8rem;
+  letter-spacing: 0.175em;
+  text-transform: uppercase;
+}
+
+.skill-percentage {
+  font-weight: 700;
+  color: #49fcd4;
+  font-size: 0.8rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: rgba(144, 144, 144, 0.25);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #49fcd4, #43d9b8);
+  width: 0;
+  transition: width 1.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Clases para diferentes porcentajes */
+.skill-5 { --target-width: 5%; }
+.skill-10 { --target-width: 10%; }
+.skill-15 { --target-width: 15%; }
+.skill-20 { --target-width: 20%; }
+.skill-25 { --target-width: 25%; }
+.skill-30 { --target-width: 30%; }
+.skill-35 { --target-width: 35%; }
+.skill-40 { --target-width: 40%; }
+.skill-45 { --target-width: 45%; }
+.skill-50 { --target-width: 50%; }
+.skill-55 { --target-width: 55%; }
+.skill-60 { --target-width: 60%; }
+.skill-65 { --target-width: 65%; }
+.skill-70 { --target-width: 70%; }
+.skill-75 { --target-width: 75%; }
+.skill-80 { --target-width: 80%; }
+.skill-85 { --target-width: 85%; }
+.skill-90 { --target-width: 90%; }
+.skill-95 { --target-width: 95%; }
+.skill-100 { --target-width: 100%; }
+
+/* Efecto de animación sutil */
+.progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 70%; /* Esto hará que solo cubra el ancho actual del .progress */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 4px;
+}
+
+/* Variantes de color para diferentes tecnologías */
+.progress.html { background: linear-gradient(90deg, #49fcd4, #2ee4bb); }
+.progress.css { background: linear-gradient(90deg, #43d9b8, #2ee4bb); }
+.progress.js { background: linear-gradient(90deg, #49fcd4, #43d9b8); }
+.progress.react { background: linear-gradient(90deg, #2ee4bb, #49fcd4); }
+.progress.node { background: linear-gradient(90deg, #43d9b8, #49fcd4); }
+.progress.python { background: linear-gradient(90deg, #49fcd4, #43d9b8); }
+
+/* Para animar las barras al cargar la página */
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--target-width); }
+}
+
+.progress.auto-animate {
+  animation: fillBar 1.5s ease-in-out forwards;
+}
+
+/* Responsive */
+@media screen and (max-width: 736px) {
+  .skill-info {
+    font-size: 0.7rem;
+  }
+  
+  .progress-bar {
+    height: 6px;
+  }
+}

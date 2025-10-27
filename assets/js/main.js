@@ -205,6 +205,25 @@
 
 					});
 
+	// Barras de Progreso - Animación al hacer scroll
+	function initProgressBars() {
+		const progressBars = document.querySelectorAll('.progress');
+		
+		function animateOnScroll() {
+			progressBars.forEach(bar => {
+				const barPosition = bar.getBoundingClientRect().top;
+				const screenPosition = window.innerHeight / 1.3;
+				
+				if(barPosition < screenPosition) {
+					bar.classList.add('auto-animate');
+				}
+			});
+		}
+
+		window.addEventListener('scroll', animateOnScroll);
+		animateOnScroll();
+	}
+
 	// Dynamic Content Loading - Versión mejorada
 	$(document).ready(function() {
 		// Contenedor para el contenido dinámico
@@ -233,6 +252,11 @@
 					if (browser.name == 'ie') $body.addClass('is-ie');
 					if (browser.mobile) $body.addClass('is-mobile');
 					$('.scrolly').scrolly({ offset: 100 });
+					
+					// Inicializar barras de progreso después de cargar contenido
+					setTimeout(function() {
+						initProgressBars();
+					}, 100);
 					
 					// Scroll suave al contenido cargado
 					$('html, body').animate({
@@ -271,6 +295,9 @@
 		if (initialPage !== 'index.html' && initialPage !== '') {
 			loadContent(initialPage);
 		}
+
+		// Inicializar barras de progreso al cargar la página
+		initProgressBars();
 	});
 
 })(jQuery);

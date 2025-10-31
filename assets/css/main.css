@@ -2350,9 +2350,9 @@ input, select, textarea {
 /* Image */
 
 	.image {
-		border: 0;
-		display: inline-block;
-		position: relative;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 		.image img {
@@ -3289,7 +3289,7 @@ ul.feature-icons li .icon.solid {
 			background-repeat: repeat-y;
 			background-size: 75% auto;
 			content: '';
-			display: block;
+			display: flex;
 			height: 100%;
 			left: 0;
 			position: absolute;
@@ -3300,10 +3300,10 @@ ul.feature-icons li .icon.solid {
 
 		#wrapper section {
 			display: grid;
-			grid-template-areas: "header content" "footer content";
-			grid-template-columns: 50vw 50vw;
-			grid-template-rows: 1fr;
-		}
+    		grid-template-areas: "header content" "footer content";
+    		grid-template-columns: 50vw 50vw;
+    		grid-template-rows: 1fr;
+}
 
 			#wrapper section:first-child {
 				margin-top: 0;
@@ -3311,8 +3311,8 @@ ul.feature-icons li .icon.solid {
 
 			#wrapper section > header {
 				grid-area: header;
-				justify-self: end;
-				text-align: right;
+				justify-self: center;
+				text-align: center;
 			}
 
 				#wrapper section > header h2 {
@@ -3339,7 +3339,8 @@ ul.feature-icons li .icon.solid {
 
 			#wrapper section > footer {
 				grid-area: footer;
-				text-align: right;
+				text-align: left;
+				
 			}
 
 				#wrapper section > footer ul.actions {
@@ -4060,4 +4061,19 @@ ul.feature-icons li .icon.solid {
   .progress-bar {
     height: 6px;
   }
+}
+
+
+h1,h3,h4,h5,h6{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+ul, ol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }

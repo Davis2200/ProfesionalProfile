@@ -6,9 +6,14 @@ import joblib
 import plotly.express as px 
 import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression
+import os
 
 # --- 1. CONFIGURACIÓN ---
 st.set_page_config(page_title="Analizador de Retención", layout="wide")
+
+# Obtener la ruta del directorio actual
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+MODELS_DIR = os.path.join(CURRENT_DIR, "models")
 
 def calcular_pendiente(serie):
     y = np.array(serie).reshape(-1, 1)
@@ -18,8 +23,11 @@ def calcular_pendiente(serie):
 @st.cache_resource
 def cargar_artefactos():
     modelo = xgb.XGBClassifier()
-    modelo.load_model('modelo_fuga_final.json')
-    scaler = joblib.load('scaler_model.pkl')
+    modelo_path = os.path.join(MODELS_DIR, "modelo_fuga_final.json")
+    scaler_path = os.path.join(CURRENT_DIR, "scaler_model.pkl")
+    
+    modelo.load_model(modelo_path)
+    scaler = joblib.load(scaler_path)
     return modelo, scaler
 
 # --- 2. DISEÑO DE PANTALLA INICIAL ---

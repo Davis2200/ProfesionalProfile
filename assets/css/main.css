@@ -3247,6 +3247,117 @@ ul.feature-icons li {
     font-size: 0.95rem;
 }
 
+/* High-impact portfolio style updates */
+body {
+    background: linear-gradient(130deg, #f7f8fc 0%, #eef4ff 45%, #ffffff 100%);
+    color: #1f2937;
+    font-family: "Source Sans Pro", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+header h1, header h2, header h3 {
+    color: #0f172a;
+}
+
+section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    margin: 1.25rem auto;
+    padding: 1.8rem;
+    max-width: 1100px;
+}
+
+.project-card {
+    border-left: 5px solid #3b82f6;
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.13);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 36px rgba(15, 23, 42, 0.2);
+    border-color: #3b82f6;
+}
+
+.project-card h2 {
+    margin-bottom: 8px;
+    font-size: 1.75rem;
+}
+
+.project-card h3 {
+    font-size: 1.05rem;
+    color: #1e40af;
+    margin-bottom: 1rem;
+}
+
+.project-card p,
+.project-card ul,
+.project-card li {
+    color: #334155;
+    line-height: 1.7;
+}
+
+.project-card ul {
+    padding-left: 1.2rem;
+    margin: 0.8rem 0 1.2rem;
+}
+
+.project-card li {
+    margin-bottom: 0.55rem;
+}
+
+.boton-icono,
+button.boton-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.25);
+    padding: 0.75rem 1.2rem;
+    font-weight: 700;
+    text-transform: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+}
+
+.boton-icono:hover,
+button.boton-icono:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(37, 99, 235, 0.25);
+}
+
+ul.feature-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+@media screen and (max-width: 960px) {
+    section {
+        padding: 1.4rem;
+        margin: 1rem 0.6rem;
+    }
+
+    .project-card h2 {
+        font-size: 1.45rem;
+    }
+
+    .project-card h3 {
+        font-size: 1rem;
+    }
+}
+
+}
+
 ul.feature-icons li .icon {
     font-size: 1rem;
     color: #555; /* Color discreto */

@@ -3,378 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Featured Projects</title>
+    <title>Projects | David Nava</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <style>
-        /* Professional Project Portfolio Styles */
-        .projects-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-radius: 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .projects-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            letter-spacing: -2px;
-            color: white;
+        :root {
+            --bg-dark: #0a0e27;
+            --bg-card: #151b35;
+            --bg-light: #1a2347;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #a855f7;
+            --accent-pink: #ff006e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #b0b0b8;
+            --border-color: rgba(0, 212, 255, 0.1);
         }
 
-        .projects-hero p {
-            font-size: 1.25rem;
-            font-weight: 300;
-            max-width: 800px;
-            margin: 0 auto;
-            color: rgba(255, 255, 255, 0.95);
+        body {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1f4e 50%, var(--bg-dark) 100%);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        .projects-container {
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
             max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+            border-bottom-color: var(--accent-cyan);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
 
-        /* Featured Project Card */
-        .featured-project {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        /* Hero Section */
+        .hero {
+            text-align: center;
             margin-bottom: 3rem;
-            overflow: hidden;
-            border: 2px solid #e0e7ff;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .featured-project:hover {
-            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.25);
-            transform: translateY(-8px);
-            border-color: #667eea;
-        }
-
-        .featured-project-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2.5rem 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .featured-project-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.3;
-        }
-
-        .featured-project-header h2 {
-            font-size: 2rem;
-            margin: 0 0 0.5rem 0;
-            font-weight: 800;
-            position: relative;
-            z-index: 2;
-        }
-
-        .featured-project-header h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0;
-            color: rgba(255, 255, 255, 0.95);
-            position: relative;
-            z-index: 2;
-        }
-
-        .badge-container {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-
-        .badge {
-            background: rgba(255, 255, 255, 0.25);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .featured-project-body {
-            padding: 2.5rem;
-        }
-
-        .project-section {
-            margin-bottom: 2rem;
-        }
-
-        .project-section h4 {
-            color: #667eea;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
             font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.05);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
 
-        .project-section h4 i {
-            font-size: 1.5rem;
+        .card-title i {
+            color: var(--accent-purple);
+            font-size: 1.3rem;
         }
 
-        .project-section p {
-            color: #334155;
-            line-height: 1.8;
+        .card-subtitle {
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .card-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .card-content p {
             margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
         }
 
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
+        .card-content p strong {
+            color: var(--text-primary);
+        }
+
+        /* Badges */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
             margin: 1.5rem 0;
         }
 
-        .metric-card {
-            background: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid #e0e7ff;
-            transition: all 0.3s ease;
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 0.9rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            font-weight: 500;
         }
 
-        .metric-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric {
+            background: rgba(168, 85, 247, 0.05);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
         }
 
         .metric-value {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: #667eea;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin-bottom: 0.25rem;
         }
 
         .metric-label {
-            font-size: 0.85rem;
-            color: #64748b;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Lists */
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0 0.75rem 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.55rem 1.2rem;
+            border-radius: 6px;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .btn i {
+            font-size: 0.85rem;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 2rem 0;
+        }
+
+        /* Section Cards */
+        .section-card {
+            margin: 1rem 0;
+        }
+
+        .section-card h4 {
+            color: var(--accent-cyan);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .tech-stack {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.75rem;
+            margin: 1rem 0;
         }
 
-        .tech-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
+        .tech-item {
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
             text-align: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
-            transition: all 0.3s ease;
+            color: var(--accent-cyan);
+            font-weight: 500;
         }
 
-        .tech-badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .bullet-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-        .bullet-list li {
-            padding: 0.75rem 0 0.75rem 2rem;
-            position: relative;
-            color: #334155;
-            line-height: 1.6;
-        }
-
-        .bullet-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-
-        .cta-container {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            border: none;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #667eea;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            border: 2px solid #667eea;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: #667eea;
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .impact-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(245, 87, 108, 0.08) 100%);
-            border-left: 4px solid #667eea;
-            padding: 1.5rem;
-            border-radius: 8px;
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(255, 0, 110, 0.05);
+            border-left: 3px solid var(--accent-pink);
+            padding: 1rem;
+            border-radius: 6px;
             margin: 1.5rem 0;
         }
 
-        .impact-box strong {
-            color: #667eea;
-            font-size: 1.1rem;
+        .highlight-box strong {
+            color: var(--accent-pink);
         }
 
-        /* Other Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.8rem;
-            border: 1px solid #e0e7ff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.15);
-            border-color: #667eea;
-        }
-
-        .project-card h3 {
-            color: #1a1a2e;
-            margin-bottom: 0.75rem;
-            font-size: 1.4rem;
-        }
-
-        .project-card p {
-            color: #64748b;
-            line-height: 1.7;
-            flex-grow: 1;
-            margin-bottom: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-
-        .tag {
-            background: #f0f4ff;
-            color: #667eea;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* Navigation */
-        .nav-back {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .nav-back a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-back a:hover {
-            gap: 1rem;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .projects-hero h1 {
-                font-size: 2rem;
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
             }
 
-            .featured-project-header {
-                padding: 2rem;
+            .hero h1 {
+                font-size: 1.8rem;
             }
 
-            .featured-project-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .featured-project-body {
+            .card {
                 padding: 1.5rem;
             }
 
@@ -382,206 +352,215 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .cta-container {
+            .button-group {
                 flex-direction: column;
             }
 
-            .btn-primary, .btn-secondary {
+            .btn {
                 width: 100%;
                 justify-content: center;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1.25rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div id="wrapper">
-        <!-- Hero Section -->
-        <div class="projects-hero">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><i class="fas fa-code"></i> David Nava</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero -->
+        <section class="hero">
             <h1>Featured Projects</h1>
-            <p>Data-driven solutions built with technical rigor, business acumen, and production-ready deployment</p>
-        </div>
+            <p>Data-driven solutions engineered with technical rigor & business acumen</p>
+        </section>
 
-        <!-- Navigation -->
-        <div class="nav-back">
-            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        </div>
+        <!-- Banking Churn Project -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <i class="fas fa-brain"></i>
+                    Banking Churn Predictive System
+                </div>
+                <div class="card-subtitle">Machine Learning Classification | Production-Ready</div>
+            </div>
 
-        <!-- Projects Container -->
-        <div class="projects-container">
-            <!-- Featured Project: Banking Churn -->
-            <div class="featured-project">
-                <div class="featured-project-header">
-                    <h2><i class="fas fa-brain"></i> Banking Churn Predictive System</h2>
-                    <h3>Machine Learning Classification | Production-Ready</h3>
-                    <div class="badge-container">
-                        <span class="badge">XGBoost</span>
-                        <span class="badge">Feature Engineering</span>
-                        <span class="badge">Streamlit Deployment</span>
-                        <span class="badge">Classification</span>
+            <div class="card-content">
+                <div class="section-card">
+                    <h4>📊 Business Impact</h4>
+                    <p>Customer acquisition costs <strong>5-25x more</strong> than retention. Lost customer lifetime value averages <strong>$10,000+</strong>. This system shifts from reactive (analyzing departing customers) to proactive (identifying at-risk accounts weeks before departure).</p>
+                    <div class="highlight-box">
+                        <strong>💰 Annual Impact:</strong> 850 retained customers × $10,000 LTV = <strong>$8.5M recovered value</strong> | 82% precision reduces wasted retention spend
                     </div>
                 </div>
 
-                <div class="featured-project-body">
-                    <!-- Executive Summary -->
-                    <div class="project-section">
-                        <h4><i class="fas fa-briefcase"></i> Business Context</h4>
-                        <p>Customer acquisition costs 5-25x more than retention. Lost customer lifetime value averages $10,000+. Traditional churn analysis is <strong>reactive</strong>—analyzing departing customers after they've left. This system is <strong>proactive</strong>: identifying at-risk accounts weeks before departure, enabling data-driven retention interventions.</p>
-                        <div class="impact-box">
-                            <strong>Annual Impact:</strong> 850 retained customers × $10,000 LTV = <strong>$8.5M recovered value</strong> | Operational efficiency: 82% precision reduces wasted retention campaign spend
+                <div class="section-card">
+                    <h4>🔧 Technical Approach</h4>
+                    <p><strong>Pipeline:</strong> Raw customer data → Feature engineering (temporal, balance volatility, engagement) → StandardScaler normalization → XGBoost classification → Probability scores + SHAP explainability</p>
+                    <ul class="feature-list">
+                        <li>XGBoost gradient boosted trees with class weighting for imbalance</li>
+                        <li>Rolling windows capture account health trajectories</li>
+                        <li>StandardScaler ensures fair feature comparison</li>
+                        <li>JSON model serialization for production deployment</li>
+                    </ul>
+                </div>
+
+                <div class="section-card">
+                    <h4>📈 Performance Metrics</h4>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value">0.85</div>
+                            <div class="metric-label">ROC-AUC</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">0.75</div>
+                            <div class="metric-label">F1-Score</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">82%</div>
+                            <div class="metric-label">Precision</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">69%</div>
+                            <div class="metric-label">Recall</div>
                         </div>
                     </div>
+                    <p><strong>Why these metrics matter:</strong> ROC-AUC (0.85) exceeds industry baseline by 21%. F1-Score (0.75) balances precision/recall in imbalanced data, far superior to accuracy (92%). Precision (82%) minimizes false positive costs. Recall (69%) prioritizes catching true churners.</p>
+                </div>
 
-                    <!-- Technical Approach -->
-                    <div class="project-section">
-                        <h4><i class="fas fa-code"></i> Technical Architecture</h4>
-                        <p><strong>Data Pipeline:</strong> Raw customer behavior → Feature Engineering (temporal analysis, balance volatility, engagement metrics) → StandardScaler normalization → XGBoost classification → Probability scores + SHAP explainability</p>
-                        
-                        <div class="">
-                            <ul class="bullet-list">
-                                <li><strong>Algorithm:</strong> XGBoost (gradient boosted decision trees) for imbalanced classification with class weighting</li>
-                                <li><strong>Features:</strong> Account tenure, transaction frequency, balance stability, service utilization, dormancy periods</li>
-                                <li><strong>Scaling:</strong> StandardScaler normalization ensures algorithm convergence and fair feature comparison</li>
-                                <li><strong>Time-Series Handling:</strong> Rolling windows capture account health trajectories and seasonal patterns</li>
-                                <li><strong>Model Artifacts:</strong> JSON serialization for production inference, versioning for A/B testing</li>
-                            </ul>
-                        </div>
+                <div class="section-card">
+                    <h4>🛠️ Tech Stack</h4>
+                    <div class="tech-stack">
+                        <div class="tech-item">Python</div>
+                        <div class="tech-item">Pandas/NumPy</div>
+                        <div class="tech-item">XGBoost</div>
+                        <div class="tech-item">Scikit-learn</div>
+                        <div class="tech-item">Streamlit</div>
+                        <div class="tech-item">Plotly</div>
+                        <div class="tech-item">SHAP</div>
+                        <div class="tech-item">SQL</div>
                     </div>
+                </div>
 
-                    <!-- Performance Metrics -->
-                    <div class="project-section">
-                        <h4><i class="fas fa-chart-bar"></i> Performance Metrics</h4>
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <div class="metric-value">0.85</div>
-                                <div class="metric-label">ROC-AUC Score</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">0.75</div>
-                                <div class="metric-label">F1-Score</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">82%</div>
-                                <div class="metric-label">Precision</div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value">69%</div>
-                                <div class="metric-label">Recall</div>
-                            </div>
-                        </div>
-
-                        <p><strong>Why These Metrics Matter:</strong></p>
-                        <ul class="bullet-list">
-                            <li><strong>ROC-AUC: 0.85</strong> — Exceeds industry baseline (0.70) by 21%; correctly ranks true churners vs stayers 85% of the time</li>
-                            <li><strong>F1-Score: 0.75</strong> — Balances precision (82%) and recall (69%), avoiding both false alarms and missed cases; far superior to accuracy (92%) in imbalanced datasets</li>
-                            <li><strong>Precision: 82%</strong> — Only 18% unnecessary retention offers; saves $50-150 per false positive</li>
-                            <li><strong>Recall: 69%</strong> — Catches 69% of true churn cases; prioritizes reducing costly false negatives ($10,000+ per missed churner)</li>
-                        </ul>
-                    </div>
-
-                    <!-- Tech Stack -->
-                    <div class="project-section">
-                        <h4><i class="fas fa-tools"></i> Tech Stack</h4>
-                        <div class="tech-stack">
-                            <div class="tech-badge">Python 3.8+</div>
-                            <div class="tech-badge">Pandas/NumPy</div>
-                            <div class="tech-badge">XGBoost</div>
-                            <div class="tech-badge">Scikit-learn</div>
-                            <div class="tech-badge">StandardScaler</div>
-                            <div class="tech-badge">Streamlit</div>
-                            <div class="tech-badge">Plotly</div>
-                            <div class="tech-badge">SHAP</div>
-                        </div>
-                    </div>
-
-                    <!-- Key Features -->
-                    <div class="project-section">
-                        <h4><i class="fas fa-star"></i> Interactive Features</h4>
-                        <ul class="bullet-list">
-                            <li>Real-time churn probability scoring on customer profiles</li>
-                            <li>SHAP feature importance: understand which factors drive predictions</li>
-                            <li>Cohort analysis: segment high-risk customer groups by demographics/behavior</li>
-                            <li>Sensitivity analysis: simulate "what-if" retention interventions (balance increase, credit upgrade, etc.)</li>
-                            <li>Retention strategy recommendations tailored per customer</li>
-                        </ul>
-                    </div>
-
-                    <!-- Call-to-Action -->
-                    <div class="cta-container">
-                        <a href="https://profesionalprofile-lynq92g5zrq4uyvv4mce3p.streamlit.app/" class="btn-primary" target="_blank">
-                            <i class="fas fa-rocket"></i> Launch Live Risk Simulator
-                        </a>
-                        <a href="assets/projects/churn/README.md" class="btn-secondary" target="_blank">
-                            <i class="fas fa-file-alt"></i> Full Technical README
-                        </a>
-                    </div>
-
-                    <!-- Project Status -->
-                    <div class="impact-box">
-                        <strong style="color: #11998e;"><i class="fas fa-check-circle"></i> Status:</strong> Production Ready | 11,000+ customer profiles analyzed | Model version 1.0 | Last updated: April 2026
-                    </div>
+                <div class="section-card">
+                    <h4>⭐ Key Features</h4>
+                    <ul class="feature-list">
+                        <li>Real-time churn probability scoring on customer profiles</li>
+                        <li>SHAP feature importance: understand prediction drivers</li>
+                        <li>Cohort analysis: segment high-risk customer groups</li>
+                        <li>Sensitivity analysis: simulate "what-if" retention interventions</li>
+                        <li>Interactive risk dashboard with Plotly visualizations</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Other Projects Section -->
-            <div style="margin-top: 4rem;">
-                <h2 style="text-align: center; color: #1a1a2e; margin-bottom: 2rem; font-size: 2rem;">Other Notable Projects</h2>
-                
-                <div class="projects-grid">
-                    <!-- Stat Lab Project Card -->
-                    <div class="project-card">
-                        <h3><i class="fas fa-basketball"></i> Stat Lab: NBA Predictive Analytics</h3>
-                        <p>Non-linear regression model predicting player performance statistics (points, assists, rebounds) for next NBA season using 30+ years of historical box score data.</p>
-                        <div class="project-tags">
-                            <span class="tag">Random Forest</span>
-                            <span class="tag">Regression</span>
-                            <span class="tag">CRISP-DM</span>
-                            <span class="tag">Feature Engineering</span>
-                        </div>
-                        <p style="font-size: 0.9rem; color: #94a3b8; margin-top: auto;">
-                            <strong>Approach:</strong> Ensemble methods to capture non-linear player performance patterns with 85%+ accuracy on test set
-                        </p>
-                    </div>
+            <div class="button-group">
+                <a href="https://profesionalprofile-lynq92g5zrq4uyvv4mce3p.streamlit.app/" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-rocket"></i> Live Simulator
+                </a>
+                <a href="assets/projects/churn/README.md" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-file-alt"></i> README
+                </a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Stat Lab Project -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <i class="fas fa-basketball"></i>
+                    Stat Lab: NBA Analytics
+                </div>
+                <div class="card-subtitle">Non-linear Regression | CRISP-DM Methodology</div>
+            </div>
+
+            <div class="card-content">
+                <p>Predictive model forecasting player performance statistics (points, assists, rebounds) for next NBA season using 30+ years of historical box score data. Ensemble random forest approach captures non-linear player performance patterns.</p>
+
+                <div class="badges">
+                    <span class="badge">Random Forest</span>
+                    <span class="badge">Regression</span>
+                    <span class="badge">Feature Engineering</span>
+                    <span class="badge">Sports Analytics</span>
+                </div>
+
+                <p><strong>Result:</strong> 85%+ accuracy on test set, successfully predicting career trajectory changes and seasonal trends.</p>
+            </div>
+
+            <div class="button-group">
+                <a href="projects.html" class="btn btn-secondary">
+                    <i class="fas fa-arrow-right"></i> View Details
+                </a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Skills Demonstrated -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <i class="fas fa-sparkles"></i>
+                    Key Competencies
                 </div>
             </div>
 
-            <!-- Learning Outcomes -->
-            <div style="margin-top: 4rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(245, 87, 108, 0.08) 100%); padding: 2rem; border-radius: 12px;">
-                <h3 style="text-align: center; color: #667eea; margin-bottom: 1.5rem;">Key Technical Skills Demonstrated</h3>
-                <div class="projects-grid">
-                    <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-database" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem; display: block;"></i>
-                        <strong>Data Engineering</strong>
-                        <p style="font-size: 0.9rem; color: #64748b;">Feature extraction, temporal feature creation, handling imbalanced data</p>
+            <div class="card-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <div style="padding: 1rem; background: rgba(0, 212, 255, 0.05); border-radius: 8px; text-align: center;">
+                        <div style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 0.25rem;">Data Engineering</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">Feature extraction & temporal analysis</div>
                     </div>
-                    <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-brain" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem; display: block;"></i>
-                        <strong>Machine Learning</strong>
-                        <p style="font-size: 0.9rem; color: #64748b;">Model selection, cross-validation, hyperparameter tuning, class weighting</p>
+                    <div style="padding: 1rem; background: rgba(168, 85, 247, 0.05); border-radius: 8px; text-align: center;">
+                        <div style="color: var(--accent-purple); font-weight: 700; margin-bottom: 0.25rem;">Machine Learning</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">Model selection & hyperparameter tuning</div>
                     </div>
-                    <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-chart-line" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem; display: block;"></i>
-                        <strong>Statistical Analysis</strong>
-                        <p style="font-size: 0.9rem; color: #64748b;">ROC-AUC, F1-Score, precision/recall tradeoffs, confusion matrices</p>
-                    </div>
-                    <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-rocket" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem; display: block;"></i>
-                        <strong>Model Deployment</strong>
-                        <p style="font-size: 0.9rem; color: #64748b;">Streamlit web apps, model serialization, interactive dashboards</p>
-                    </div>
-                    <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-handshake" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem; display: block;"></i>
-                        <strong>Business Acumen</strong>
-                        <p style="font-size: 0.9rem; color: #64748b;">ROI calculation, cost-benefit analysis, stakeholder communication</p>
-                    </div>
-                    <div style="background: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-file-contract" style="font-size: 2rem; color: #667eea; margin-bottom: 0.5rem; display: block;"></i>
-                        <strong>Technical Docs</strong>
-                        <p style="font-size: 0.9rem; color: #64748b;">READMEs, methodology documentation, code comments</p>
+                    <div style="padding: 1rem; background: rgba(255, 0, 110, 0.05); border-radius: 8px; text-align: center;">
+                        <div style="color: var(--accent-pink); font-weight: 700; margin-bottom: 0.25rem;">Statistics</div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">ROC-AUC, F1-Score, confusion matrices</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="assets/js/main.js"></script>
 </body>

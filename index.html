@@ -3,49 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Nava Aguilar</title>
-    <!-- CSS -->
+    <title>David Nava Aguilar - Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
 </head>
-<body>
-    <div id="wrapper">
-        <section class="intro">
-            <header>
-                <h1>David Nava Aguilar</h1>
-                <p>Junior Data Scientist | IPN | Predictive Analytics & Data-Driven Solutions</p>        
-            </header>
-
-            <nav class="intro"> 
-                    <ul><a href="about.html" 
-                        class="boton-icono load-content" 
-                        data-page="about.html"><i class="icon solid fa-envelope"></i>
-                        Sobre Mí</a></ul>
-                    <ul><a href="skills.html" 
-                    class="boton-icono load-content" 
-                    data-page="skills.html"><i class="icon solid fa-code"></i>
-                    Habilidades</a></ul>
-                    <ul><a href="projects.html" 
-                    class="boton-icono load-content" 
-                    data-page="projects.html"><i class="icon solid fa-project-diagram"></i>
-                    Proyectos</a></ul>
-                
+<body class="page-wrapper">
+    <div class="page-content">
+        <!-- Header Section -->
+        <div class="page-header">
+            <h1>David Nava Aguilar</h1>
+            <p class="subtitle">Junior Data Scientist | IPN | Predictive Analytics & Data-Driven Solutions</p>
+            <img src="assets/images/foto-perfi.JPG" alt="David Nava" class="profile-image">
+            
+            <!-- Navigation -->
+            <nav class="page-nav">
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-user"></i> Sobre Mí
+                </a>
+                <a href="skills.html" class="nav-link">
+                    <i class="fas fa-code"></i> Habilidades
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <i class="fas fa-project-diagram"></i> Proyectos
+                </a>
             </nav>
+        </div>
 
-            <div class="content">
-                <span class="image fill" data-position="center"><img src="assets/images/foto-perfi.JPG" alt=""></span>
+        <!-- About Section -->
+        <section class="page-section">
+            <h2 class="section-title">Bienvenido a mi Portafolio</h2>
+            <div class="section-content">
+                <p>Soy un <strong>Junior Data Scientist</strong> apasionado por transformar datos complejos en soluciones prácticas e impactantes. 
+                Con experiencia en machine learning, análisis predictivo y visualización de datos, trabajo para cerrar la brecha entre 
+                el rigor técnico y la aplicabilidad empresarial.</p>
                 
+                <p>Mi objetivo es construir sistemas de datos que no solo sean matemáticamente sólidos, sino también 
+                <strong>accionables</strong> y orientados a resultados medibles.</p>
             </div>
         </section>
 
-        <!-- Contenedor del contenido dinámico -->
-        <div id="content-container">
-            <!-- El contenido inicial se carga aquí -->
-        </div>
-    
+        <!-- Featured Project -->
+        <section class="page-section">
+            <h2 class="section-title">Proyecto Destacado</h2>
+            <div class="section-content">
+                <h3 class="section-subtitle">🏦 Banking Churn Predictive System</h3>
+                <p>Sistema de predicción de fuga de clientes bancarios utilizando <strong>XGBoost</strong> con 
+                <strong>85% de ROC-AUC</strong>. Optimizado para máxima precisión en identificación de clientes en riesgo.</p>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="projects.html" class="nav-link">
+                        Ver Todos los Proyectos
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>

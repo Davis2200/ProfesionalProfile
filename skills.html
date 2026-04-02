@@ -3,166 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habilidades</title>
-    <!-- CSS -->
+    <title>Habilidades - David Nava Aguilar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
 </head>
-<body>
-    <div id="wrapper">
+<body class="page-wrapper">
+    <div class="page-content">
+        <!-- Header Section -->
+        <div class="page-header">
+            <h1>Habilidades</h1>
+            <p class="subtitle">Técnicas, herramientas y competencias profesionales</p>
+            <img src="assets/images/skills.jpeg" alt="Skills" class="profile-image">
+            
+            <!-- Navigation -->
+            <nav class="page-nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-user"></i> Sobre Mí
+                </a>
+                <a href="projects.html" class="nav-link">
+                    <i class="fas fa-project-diagram"></i> Proyectos
+                </a>
+            </nav>
+        </div>
 
-    <section>
-        <header>
-            <h2>Habilidades</h2>
-
-            <div class="imgFotos">
-                <img src="assets/images/skills.jpeg" alt="">
+        <!-- Data Science & Analytics -->
+        <section class="page-section">
+            <h2 class="section-title">Data Science & Analytics</h2>
+            <div class="section-content">
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <p><strong>Advanced Statistical Analysis:</strong> Pruebas de hipótesis, regresión, análisis multivariado</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-line-chart"></i>
+                        <p><strong>Predictive Modeling & ML:</strong> Clasificación, regresión, ensemble methods</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-brain"></i>
+                        <p><strong>Feature Engineering:</strong> Transformación de datos, selección de variables</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-cube"></i>
+                        <p><strong>Time Series Analysis:</strong> Pronósticos, análisis temporal</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-pie-chart"></i>
+                        <p><strong>Data Visualization & Dashboards:</strong> Plotly, Streamlit, análisis interactivo</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-database"></i>
+                        <p><strong>SQL & NoSQL:</strong> Diseño y optimización de bases de datos</p>
+                    </div>
+                </div>
             </div>
-        </header>
+        </section>
 
-        <nav >
-            <ul><a href="index.html" class="boton-icono load-content" data-page="index.html"> Volver al Inicio</a></ul>
-           <ul><a href="about.html" class="boton-icono load-content" data-page="about.html"><i class="icon solid fa-envelope"></i> Ir a Sobre mi</a></ul>
-            <ul><a href="projects.html" class="boton-icono load-content" data-page="projects.html"><i class="icon solid fa-project-diagram"></i> Ir a Proyectos</a></ul>
-        </nav>
+        <!-- Programming Languages -->
+        <section class="page-section">
+            <h2 class="section-title">Lenguajes de Programación & Frameworks</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-percentage">65%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                    </div>
 
-        <div class="content">
-            <h3><strong>Data Science & Analytics</strong></h3>
-            <ul class="feature-icons">
-            <li><i class="icon solid fa-bar-chart"></i> Advanced Statistical Analysis</li>
-            <li><i class="icon solid fa-chart-line"></i> Predictive Modeling & Machine Learning</li>
-            <li><i class="icon solid fa-brain"></i> Feature Engineering</li>
-            <li><i class="icon solid fa-cube"></i> Time Series Analysis</li>
-            <li><i class="icon solid fa-chart-pie"></i> Data Visualization & Dashboards</li>
-            <li><i class="icon solid fa-database"></i> SQL & NoSQL Database Design</li>
-            </ul>
-            <h4><strong>Programming Languages & Frameworks</strong></h4>
-            <div class=" content skills-container skill-item">
-            <div class="skill-info">
-            <span class="skill-name">Python</span>
-            <span class="skill-percentage">65%</span>
-        </div>
-        <div class="progress-bar">
-            <div class="progress python auto-animate skill-65"></div>
-        </div>
+                    <div class="skill-item">
+                        <span class="skill-name">SQL</span>
+                        <span class="skill-percentage">55%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 55%"></div>
+                        </div>
+                    </div>
 
-        <article class="content skills-container skill-item">
-            <div class="skill-info">
-            <span class="skill-name">SQL</span>
-            <span class="skill-percentage">55%</span>
-        </article>
-        <article class="progress-bar">
-            <div class="progress sql auto-animate skill-55"></div>
-        </article>
+                    <div class="skill-item">
+                        <span class="skill-name">HTML/CSS</span>
+                        <span class="skill-percentage">50%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 50%"></div>
+                        </div>
+                    </div>
 
-        <div class="content skills-container skill-item">
-            <div class="skill-info">
-                <span class="skill-name">HTML/CSS</span>
-                <span class="skill-percentage">50%</span>
+                    <div class="skill-item">
+                        <span class="skill-name">XGBoost & Scikit-Learn</span>
+                        <span class="skill-percentage">60%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name">Pandas & NumPy</span>
+                        <span class="skill-percentage">65%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name">Plotly & Visualization</span>
+                        <span class="skill-percentage">55%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 55%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name">Streamlit</span>
+                        <span class="skill-percentage">60%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-percentage">25%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 25%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="progress-bar">
-            <div class="progress js auto-animate skill-50"></div>
-        </div>
+        </section>
 
-        <div class="content skills-container skill-item">
-            <div class="skill-info">
-                <span class="skill-name">XGBoost & Scikit-Learn</span>
-                <span class="skill-percentage">60%</span>
-            </div>
-        </div>
-        <div class="progress-bar">
-            <div class="progress python auto-animate skill-60"></div>
-        </div>
+        <!-- Languages -->
+        <section class="page-section">
+            <h2 class="section-title">Idiomas</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Español (Nativo)</span>
+                        <span class="skill-percentage">100%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                    </div>
 
-        <div class="content skills-container skill-item">
-            <div class="skill-info">
-                <span class="skill-name">Pandas & NumPy</span>
-                <span class="skill-percentage">65%</span>
+                    <div class="skill-item">
+                        <span class="skill-name">English (Técnico)</span>
+                        <span class="skill-percentage">30%</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 30%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="progress-bar">
-            <div class="progress r auto-animate skill-65"></div>
-        </div>
+        </section>
 
-        <div class="content skills-container skill-item">
-            <div class="skill-info">
-                <span class="skill-name">Plotly & Data Visualization</span>
-                <span class="skill-percentage">55%</span>
+        <!-- Soft Skills -->
+        <section class="page-section">
+            <h2 class="section-title">Competencias Blandas</h2>
+            <div class="section-content">
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <p><strong>Creative Problem Solving:</strong> Pensamiento innovador en soluciones de datos</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-handshake"></i>
+                        <p><strong>Cross-functional Collaboration:</strong> Trabajo con equipos multidisciplinarios</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-comments"></i>
+                        <p><strong>Communication:</strong> Explicar conceptos técnicos a stakeholders no técnicos</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-random"></i>
+                        <p><strong>Adaptability:</strong> Flexibilidad ante cambios en requisitos</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-heart"></i>
+                        <p><strong>Growth Mindset:</strong> Aprendizaje continuo y mejora personal</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-info-circle"></i>
+                        <p><strong>Responsibility:</strong> Compromiso con la calidad y los resultados</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="progress-bar">
-            <div class="progress cpp auto-animate skill-55"></div>
-        </div>
-
-        <div class="content skills-container skill-item">
-            <div class="skill-info">
-                <span class="skill-name">Streamlit</span>
-                <span class="skill-percentage">60%</span>
-            </div>
-        </div>
-        <div class="progress-bar">
-            <div class="progress java auto-animate skill-60"></div>
-        </div>
-
-        <div class="content skills-container skill-item">
-            <div class="skill-info">
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-percentage">25%</span>
-            </div>
-        </div>
-        <div class="progress-bar">
-            <div class="progress html auto-animate skill-25"></div>
-        </div>  
+        </section>
     </div>
 
-    <h4><strong>Languages</strong></h4>
-        <div class="content skills-container skill-item">
-            <div class="skill-info">
-                <span class="skill-name">Spanish (Native)</span>
-                <span class="skill-percentage">100%</span>
-            </div>
-            <div class="progress-bar">
-            <div class="progress cpp auto-animate skill-100"></div>
-        </div>  
-    </div>
-
-    <div class="content skills-container skill-item">
-        <div class="skill-info">
-            <span class="skill-name">English (Technical)</span>
-            <span class="skill-percentage">30%</span>
-        </div>
-        <div class="progress-bar">
-        <div class="progress cpp auto-animate skill-30"></div>
-    </div>  
-</div>
-       
-        
-            <h3><strong>Soft Skills & Professional Competencies</strong></h3>
-            <ul class="feature-icons">
-<<<<<<< HEAD
-            <li><i class="icon solid fa-lightbulb"></i> Creative thinking for financial problem solving</li>
-            <li><i class="icon solid fa-handshake"></i> Cross-functional collaboration</li>
-            <li><i class="icon solid fa-balance-scale"></i> Communication with technical and business stakeholders</li>
-            <li><i class="icon solid fa-random"></i> Adaptability to changing data requirements</li>
-            <li><i class="icon solid fa-heart"></i> Responsibility and growth mindset</li>
-=======
-            <li><i class="icon solid fa-lightbulb"></i> Creative Problem-Solving (Financial Domain)</li>
-            <li><i class="icon solid fa-users"></i> Multidisciplinary Team Collaboration</li>
-            <li><i class="icon solid fa-handshake"></i> Proactive Communication & Assertiveness</li>
-            <li><i class="icon solid fa-bullseye"></i> Results-Oriented Mindset</li>
-            <li><i class="icon solid fa-sync"></i> Adaptability to High-Demand Environments</li>
-            <li><i class="icon solid fa-graduation-cap"></i> Continuous Learning & Self-Development</li>
->>>>>>> 664ee97 (reestructuracion 2)
-            </ul>        
-
-             
-    </div>
-    </div>
-    
-    </section>    
-    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -115,48 +115,14 @@
             </div>
         </section>
 
-        <!-- Technical Deep Dive: Banking Churn Project -->
+        <!-- Banking Churn Project Link -->
         <section class="page-section">
             <h2 class="section-title">📊 Proyecto: Sistema Predictivo de Fuga Bancaria</h2>
             <div class="section-content">
-                <p><strong>Descripción Ejecutiva:</strong> Sistema machine learning listo para producción que predice fuga de clientes en entornos bancarios con <strong>ROC-AUC: 0.85</strong> y <strong>F1-Score: 0.75</strong>. Este proyecto une experiencia técnica en sistemas de mantenimiento predictivo con metodologías avanzadas de ciencia de datos.</p>
-
-                <h3 class="section-subtitle">🎯 El Desafío Empresarial</h3>
-                <p>El costo de adquisición de clientes en banca es <strong>5-25 veces mayor</strong> al costo de retención. Para cada aumento del 5% en retención, la rentabilidad aumenta entre 25-95%. La predicción tradicional de fuga es reactiva (analizar clientes que se van), pero la identificación <strong>proactiva</strong> habilita campañas de retención enfocadas antes del abandono.</p>
-
-                <h3 class="section-subtitle">🔧 Pipeline de Ingeniería de Datos</h3>
-                <p><strong>Características Engineered:</strong> Características temporales (antigüedad de cuenta, frecuencia de transacciones, períodos de inactividad), métricas de engagement (utilización de servicios, diversificación de productos), indicadores financieros (estabilidad de saldo, patrones de depósitos/retiros) y señales de comportamiento (recencia de última transacción, patrones estacionales).</p>
-                
-                <p><strong>Normalización:</strong> Se aplicó StandardScaler para asegurar distribuciones uniformes de características—crítico para convergencia del algoritmo e interpretabilidad. Centra características a media = 0, desviación estándar = 1, evitando que características de magnitud alta dominen decisiones del modelo.</p>
-
-                <h3 class="section-subtitle">🧠 Arquitectura de Modelo: XGBoost</h3>
-                <p><strong>¿Por qué XGBoost?</strong></p>
-                <ul style="margin-left: 1.5rem;">
-                    <li><strong>Maneja Datos Desbalanceados:</strong> La fuga bancaria es inherentemente desbalanceada (~20% positivos); XGBoost lo maneja natively mediante ponderación de muestras</li>
-                    <li><strong>Importancia de Características:</strong> Genera coeficientes explicables críticos para que equipos empresariales diseñen campañas de retención</li>
-                    <li><strong>Relaciones No Lineales:</strong> Captura interacciones complejas entre características (ej: antigüedad × saldo)</li>
-                    <li><strong>Escalabilidad:</strong> Procesa eficientemente grandes datasets de clientes mediante optimización gradient boosting</li>
-                </ul>
-
-                <h3 class="section-subtitle">📈 Interpretación de Métricas</h3>
-                <p><strong>ROC-AUC: 0.85</strong> — El modelo clasifica correctamente un cliente positivo aleatorio como "más probable de fugarse" que un cliente negativo aleatorio el 85% de las veces. Excede la línea base de la industria (0.70) por 21%, habilitando priorización confiada.</p>
-                
-                <p><strong>F1-Score: 0.75</strong> — Media armónica de Precisión (0.82) y Recall (0.69). Refleja verdadero poder discriminativo a través de ambas clases. Con 80% de negativos, la exactitud (92%) sería engañosa; F1-Score captura el balance real.</p>
-                
-                <p><strong>Precisión: 82%</strong> — Minimiza costos de falsos positivos (campañas de retención innecesarias). De 100 predicciones "churner", 82 son verdaderos positivos.</p>
-                
-                <p><strong>Recall: 69%</strong> — Prioriza capturar verdaderos casos de fuga. De 100 clientes que realmente se van, el modelo identifica 69 antes de la salida.</p>
-
-                <h3 class="section-subtitle">💼 Stack Tecnológico</h3>
-                <div class="tech-stack">
-                    <div class="tech-item">Python</div>
-                    <div class="tech-item">Pandas/NumPy</div>
-                    <div class="tech-item">XGBoost</div>
-                    <div class="tech-item">Scikit-learn</div>
-                    <div class="tech-item">Streamlit</div>
-                    <div class="tech-item">Plotly</div>
-                    <div class="tech-item">SHAP</div>
-                    <div class="tech-item">SQL</div>
+                <div class="button-group">
+                    <a href="assets/projects/churn/README.md" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-book"></i> Ver README del Proyecto
+                    </a>
                 </div>
             </div>
         </section>

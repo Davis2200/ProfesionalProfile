@@ -3,44 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos | David Nava</title>
+    <title>Proyectos - David Nava Aguilar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
 </head>
-<body class="projects-page">
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo"><i class="fas fa-code"></i> David Nava</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="about.html">Acerca de</a></li>
-                <li><a href="skills.html">Habilidades</a></li>
-                <li><a href="projects.html">Proyectos</a></li>
-            </ul>
+<body class="page-wrapper">
+    <div class="page-content">
+        <!-- Header Section -->
+        <div class="page-header">
+            <h1>Proyectos</h1>
+            <p class="subtitle">Soluciones impulsadas por datos, diseñadas con rigor técnico y visión empresarial</p>
+            <img src="assets/images/projects.jpeg" alt="Proyectos" class="profile-image">
+            
+            <!-- Navigation -->
+            <nav class="page-nav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-user"></i> Sobre Mí
+                </a>
+                <a href="skills.html" class="nav-link">
+                    <i class="fas fa-code"></i> Habilidades
+                </a>
+            </nav>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero -->
-        <section class="hero">
-            <h1>Proyectos Destacados</h1>
-            <p>Soluciones impulsadas por datos, diseñadas con rigor técnico y visión empresarial</p>
-        </section>
+        <!-- Banking Churn Project Section -->
+        <section class="page-section">
 
-        <!-- Banking Churn Project -->
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <i class="fas fa-brain"></i>
-                    Sistema Predictivo de Fuga Bancaria
-                </div>
-                <div class="card-subtitle">Clasificación Machine Learning | Listo para Producción</div>
-            </div>
+        <!-- Banking Churn Project Section -->
+        <section class="page-section">
+            <h2 class="section-title">🏦 Sistema Predictivo de Fuga Bancaria</h2>
+            <div class="section-content">
+                <h3 class="section-subtitle">Clasificación Machine Learning | Listo para Producción</h3>
 
-            <div class="card-content">
                 <div class="section-card">
                     <h4>📊 Impacto Empresarial</h4>
                     <p>El costo de adquisición de clientes es <strong>5-25 veces mayor</strong> que la retención. El valor promedio de vida útil de un cliente perdido es <strong>$10,000+</strong>. Este sistema transforma el enfoque de reactivo (analizar clientes que se van) a proactivo (identificar cuentas en riesgo semanas antes de la salida).</p>
@@ -107,31 +105,24 @@
                         <li>Dashboard de riesgo interactivo con visualizaciones Plotly</li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="button-group">
-                <a href="https://profesionalprofile-lynq92g5zrq4uyvv4mce3p.streamlit.app/" class="btn btn-primary" target="_blank">
-                    <i class="fas fa-rocket"></i> Simulador en Vivo
-                </a>
-                <a href="assets/projects/churn/README.md" class="btn btn-secondary" target="_blank">
-                    <i class="fas fa-file-alt"></i> README
-                </a>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Stat Lab Project -->
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <i class="fas fa-basketball"></i>
-                    Stat Lab: NBA Analytics
+                <div class="button-group">
+                    <a href="https://profesionalprofile-lynq92g5zrq4uyvv4mce3p.streamlit.app/" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-rocket"></i> Simulador en Vivo
+                    </a>
+                    <a href="assets/projects/churn/README.md" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-file-alt"></i> README
+                    </a>
                 </div>
-                <div class="card-subtitle">Regresión No Lineal | Metodología CRISP-DM</div>
             </div>
+        </section>
 
-            <div class="card-content">
+        <!-- Stat Lab Project Section -->
+        <section class="page-section">
+            <h2 class="section-title">🏀 Stat Lab: NBA Analytics</h2>
+            <div class="section-content">
+                <h3 class="section-subtitle">Regresión No Lineal | Metodología CRISP-DM</h3>
+
                 <p>Modelo predictivo que pronostica estadísticas de rendimiento de jugadores (puntos, asistencias, rebotes) para la próxima temporada de la NBA usando datos históricos de más de 30 años de box scores. Enfoque de ensamble de bosque aleatorio captura patrones no lineales en el rendimiento de jugadores.</p>
 
                 <div class="badges">
@@ -142,27 +133,19 @@
                 </div>
 
                 <p><strong>Resultado:</strong> Precisión superior al 85% en conjunto de prueba, predicción exitosa de cambios en trayectoria de carrera y tendencias estacionales.</p>
-            </div>
 
-            <div class="button-group">
-                <a href="projects.html" class="btn btn-secondary">
-                    <i class="fas fa-arrow-right"></i> Ver Detalles
-                </a>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Skills Demonstrated -->
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <i class="fas fa-sparkles"></i>
-                    Competencias Clave
+                <div class="button-group">
+                    <a href="projects.html" class="btn btn-secondary">
+                        <i class="fas fa-arrow-right"></i> Ver Detalles
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <div class="card-content">
+        <!-- Skills Demonstrated Section -->
+        <section class="page-section">
+            <h2 class="section-title">✨ Competencias Clave</h2>
+            <div class="section-content">
                 <div class="competencies-grid">
                     <div class="competency-card data-engineering">
                         <div class="competency-title">Ingeniería de Datos</div>
@@ -178,8 +161,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </section>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>

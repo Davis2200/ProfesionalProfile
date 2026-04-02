@@ -24,7 +24,7 @@ def calcular_pendiente(serie):
 def cargar_artefactos():
     modelo = xgb.XGBClassifier()
     modelo_path = os.path.join(MODELS_DIR, "modelo_fuga_final.json")
-    scaler_path = os.path.join(CURRENT_DIR, "scaler_model.pkl")
+    scaler_path = os.path.join(MODELS_DIR, "scaler_model.pkl")
     
     modelo.load_model(modelo_path)
     scaler = joblib.load(scaler_path)

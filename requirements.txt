@@ -8,3 +8,4 @@ plotly>=5.17.0
 sqlalchemy
 psycopg2-binary
 uvicorn
+fastapi

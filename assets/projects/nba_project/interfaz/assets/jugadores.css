@@ -1,0 +1,115 @@
+.player-card {
+    background: #0d0d12;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #1a1a25;
+    border-left: 4px solid #00f2ff;
+}
+.player-header { display: flex; align-items: center; gap: 15px; }
+.img-container img { width: 80px; height: 60px; border-radius: 5px; background: #000; border: 1px solid #333; }
+.player-name { font-family: 'Orbitron', sans-serif; color: #fff; font-size: 1.1rem; }
+.pred-tag { font-size: 0.8rem; color: #888; }
+.pred-tag span { color: #ff0055; font-weight: bold; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 15px 0; border-top: 1px solid #1a1a25; padding-top: 10px; }
+.stat-box { text-align: center; }
+.stat-box small { color: #00f2ff; font-size: 0.6rem; display: block; }
+.stat-box div { font-weight: bold; color: #fff; font-size: 1rem; }
+.player-footer { text-align: right; font-size: 0.75rem; color: #555; }
+
+/* Header: Imagen y Nombre */
+.player-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.img-container img {
+    width: 90px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+    background: #000;
+    border: 1px solid #444;
+}
+
+.player-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pred-tag {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.pred-tag span {
+    color: #ff0055;
+    font-weight: bold;
+}
+
+/* Rejilla de Medidas de Tendencia */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px 0;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-box small {
+    color: #00f2ff;
+    font-size: 0.7rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-box div {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Footer: Puntos anteriores */
+.player-footer {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: right;
+}
+
+.player-footer strong {
+    color: #00f2ff;
+    font-size: 1rem;
+}
+
+/* Hover effect */
+.player-card:hover {
+    border-color: #ff0055;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Ejemplo para tu archivo .css externo */
+.stButton > button {
+    border: 1px solid #00d4ff;
+    background: rgba(0, 212, 255, 0.1);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    transition: 0.3s;
+}
+
+.stButton > button:hover {
+    background: #00d4ff;
+    color: black;
+    box-shadow: 0 0 15px #00d4ff;
+}

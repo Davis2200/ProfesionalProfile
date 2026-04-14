@@ -1,0 +1,112 @@
+:root {
+    --neon-cyan: #00f3ff;
+    --neon-purple: #9d00ff;
+    --neon-pink: #ff0055;
+}
+
+.main-header {
+    background: rgba(10, 5, 25, 0.9);
+    border-bottom: 2px solid var(--neon-cyan);
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.logo span { color: var(--neon-pink); }
+
+.game-card {
+    background: rgba(20, 10, 45, 0.6);
+    border: 1px solid var(--neon-cyan);
+    margin: 20px auto;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 20px;
+    clip-path: polygon(
+        0 0, 
+        100% 0, 
+        100% 75%, 
+        95% 100%, 
+        0 100%);
+    transition: 0.3s;
+}
+
+.game-card:hover {
+    box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.vs-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.team-circle img {  
+    width: 60px;
+    filter: drop-shadow(0 0 5px white);
+}
+
+.score-box {
+    font-size: 2rem;
+    font-family: 'Orbitron';
+    color: #f3ff00;
+}
+
+
+div.stButton > button {
+    background-color: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--neon-cyan);
+    color: white;
+    font-family: 'Orbitron';
+    transition: 0.3s;
+}
+
+div.stButton > button:hover {
+    background-color: var(--neon-cyan);
+    color: black;
+    box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+/* Contenedor de Fecha, Estadio y Status */
+.card-header-meta {
+    display: flex;
+    justify-content: space-between; /* Empuja los elementos a los extremos */
+    align-items: center;            /* Los alinea verticalmente al centro */
+    width: 100%;
+    margin-bottom: 15px;            /* Espacio respecto a los equipos */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+}
+
+/* Forzar que el estadio esté siempre en el centro matemático */
+.arena-tag {
+    flex: 1;           /* Toma el espacio disponible */
+    text-align: center; /* Centra el texto */
+    color: var(--neon-purple);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilo para el Badge de Status (Derecha) */
+.status-badge {
+    background: var(--neon-pink);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* Estilo para la Fecha (Izquierda) */
+.card-header-meta span:first-child {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}

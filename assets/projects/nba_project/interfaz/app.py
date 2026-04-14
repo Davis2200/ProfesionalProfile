@@ -69,7 +69,7 @@ with col3:
 
 # Dentro del bloque de petición a la API
 fecha_str = st.session_state.fecha_consulta.strftime("%Y-%m-%d")
-url = f"http://127.0.0.1:8000/predictions/calendar?target_date={fecha_str}"
+url = f"http://10.100.68.12:8000/predictions/calendar?target_date={fecha_str}"
 
 try:
     res = requests.get(url)

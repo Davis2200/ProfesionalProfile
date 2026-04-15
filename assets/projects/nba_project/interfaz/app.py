@@ -34,7 +34,7 @@ iniciar_api()
 
 if api_host:
     # Si definiste API_HOST (ej: la IP de tu VM), la usamos con el puerto 8000
-    base_url = f"http://192.168.0.82:8000"
+    base_url = "http://192.168.0.82:8000"
 else:
     # Si no, usamos la API_URL completa del .env
     base_url = env_api_url.rstrip('/')

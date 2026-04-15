@@ -1,11 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+# Importamos las rutas y la base de datos
+from database import engine, Base
 from api.routes.calendar import router as calendar_router
 from api.routes.jugadores import router as players_router
 
-app = FastAPI(title="StatsBet API - Local")
+# Crear las tablas si no existen (opcional, pero útil)
+# Base.metadata.create_all(bind=engine)
 
-# Configuración de CORS para acceso local
+app = FastAPI(title="StatsBet API - Conectada a DavisNA")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -14,14 +18,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Registro de rutas
+app.include_router(players_router, prefix="/players", tags=["Jugadores"])
+app.include_router(calendar_router, prefix="/predictions", tags=["Predicciones"])
 
-
-
-# ...
-app.include_router(players_router, prefix="/players")
-# Incluimos las rutas de lógica
-app.include_router(calendar_router, prefix="/predictions")
+@app.get("/check_connection")
+def check_connection():
+    from database import DB_HOST
+    return {
+        "status": "Ready",
+        "resolved_ip": DB_HOST,
+        "target_machine": "DavisNA"
+    }
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    # 0.0.0.0 permite que Streamlit (u otros) lleguen a la API
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -1,12 +1,31 @@
-from fastapi import APIRouter, HTTPException
+import sys
+import os
+from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
-from database import engine 
+from sqlalchemy.orm import Session
 from datetime import date
+
+# --- AJUSTE DE IMPORTACIÓN ---
+# Permitir que el router encuentre 'database.py' en la raíz
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, "../../"))
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+# Importamos la dependencia get_db (en lugar del engine directo)
+try:
+    from database import get_db
+except ImportError:
+    print("❌ Error: No se pudo importar get_db desde database.py")
+    raise
 
 router = APIRouter()
 
 @router.get("/calendar")
-def get_calendar(target_date: date): # FastAPI validará que sea YYYY-MM-DD
+def get_calendar(target_date: date, db: Session = Depends(get_db)):
+    """
+    Obtiene el calendario de juegos de la NBA para una fecha específica.
+    """
     query = text("""
         SELECT 
             g.game_id as id, t1.name as local, t1.team_id as h_id,
@@ -23,21 +42,33 @@ def get_calendar(target_date: date): # FastAPI validará que sea YYYY-MM-DD
         WHERE g.game_date = :d 
         ORDER BY g.scheduled_date_mx ASC
     """)
+    
     try:
-        with engine.connect() as conn:
-            result = conn.execute(query, {"d": target_date}).mappings().all()
-            games = [dict(row) for row in result]
+        # Usamos la sesión 'db' inyectada por FastAPI
+        result = db.execute(query, {"d": target_date}).mappings().all()
+        games = [dict(row) for row in result]
 
-            # Mapeo de status
-            status_map = {
-                "completed": "completado",
-                "in_progress": "en progreso",
-                "scheduled": "agendado"
-            }
-            for game in games:
-                game["status"] = status_map.get(game["status"], game["status"])
+        # Mapeo de status para el dashboard
+        status_map = {
+            "completed": "completado",
+            "in_progress": "en progreso",
+            "scheduled": "agendado",
+            "Final": "completado" # Agregado por si la API de NBA usa 'Final'
+        }
+        
+        for game in games:
+            game["status"] = status_map.get(game["status"], game["status"])
 
-            return {"status": "success", "games": games}
+        return {
+            "status": "success", 
+            "date": target_date,
+            "count": len(games),
+            "games": games
+        }
+        
     except Exception as e:
-        print(f"Error en el Router: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"🔴 Error en el Router de Calendario: {e}")
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Error consultando la base de datos en DavisNA: {str(e)}"
+        )

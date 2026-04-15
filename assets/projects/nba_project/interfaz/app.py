@@ -3,14 +3,33 @@ import requests
 import os
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
+import time 
+import subprocess
+import sys
 
 # Cargar el .env (localmente) o Secrets (en Streamlit Cloud)
 load_dotenv()
 
 # 1. CONFIGURACIÓN DE URL DINÁMICA
 # Prioridad: 1. Variable de entorno 'API_HOST' | 2. 'API_URL' del .env | 3. Localhost (Fallback)
-env_api_url = os.getenv("API_URL", "http://127.0.0.1:8000")
-api_host = os.getenv("API_HOST")
+env_api_url = os.getenv("API_URL", "http://192.168.0.82:8000")
+api_host = os.getenv("DB_HOST")
+
+
+# --- INICIAR API EN SEGUNDO PLANO ---
+@st.cache_resource
+def iniciar_api():
+    # Buscamos la ruta de tu main.py de la API
+    # Ajusta esta ruta según donde esté parado el servidor
+    api_path = "assets/projects/nba_project/api/main.py" 
+    
+    # Ejecutamos uvicorn como un proceso independiente
+    proc = subprocess.Popen([sys.executable, api_path])
+    time.sleep(2) # Esperamos a que la API cargue
+    return proc
+
+# Llamamos a la función para que la API corra siempre
+iniciar_api()
 
 if api_host:
     # Si definiste API_HOST (ej: la IP de tu VM), la usamos con el puerto 8000

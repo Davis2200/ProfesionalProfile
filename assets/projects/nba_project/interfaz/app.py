@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import time 
 import subprocess
 import sys
+import socket
 
 # Cargar el .env (localmente) o Secrets (en Streamlit Cloud)
 load_dotenv()
@@ -13,7 +14,7 @@ load_dotenv()
 # 1. CONFIGURACIÓN DE URL DINÁMICA
 # Prioridad: 1. Variable de entorno 'API_HOST' | 2. 'API_URL' del .env | 3. Localhost (Fallback)
 env_api_url = os.getenv("API_URL", "http://192.168.0.82:8000")
-api_host = os.getenv("DB_HOST")
+api_host = os.gethostbyname(os.getenv("DB_HOST"))
 
 
 # --- INICIAR API EN SEGUNDO PLANO ---

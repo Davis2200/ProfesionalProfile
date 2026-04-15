@@ -2,11 +2,26 @@ import streamlit as st
 import requests
 import os
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
-# 1. CONFIGURACIÓN INICIAL
+# Cargar el .env (localmente) o Secrets (en Streamlit Cloud)
+load_dotenv()
+
+# 1. CONFIGURACIÓN DE URL DINÁMICA
+# Prioridad: 1. Variable de entorno 'API_HOST' | 2. 'API_URL' del .env | 3. Localhost (Fallback)
+env_api_url = os.getenv("API_URL", "http://127.0.0.1:8000")
+api_host = os.getenv("API_HOST")
+
+if api_host:
+    # Si definiste API_HOST (ej: la IP de tu VM), la usamos con el puerto 8000
+    base_url = f"http://{api_host}:8000"
+else:
+    # Si no, usamos la API_URL completa del .env
+    base_url = env_api_url.rstrip('/')
+
+# 2. CONFIGURACIÓN DE PÁGINA Y ESTILOS
 st.set_page_config(page_title="StatsBet NBA", layout="wide")
 
-# 2. CARGA DE ESTILOS (CSS)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 css_path = os.path.join(BASE_DIR, "assets", "style.css")
 
@@ -43,19 +58,16 @@ def render_game_card(p):
     </div>
     """, unsafe_allow_html=True)
 
-
-# 3. LÓGICA DE NAVEGACIÓN (Control de Fechas)
-# Usamos session_state para que la página "recuerde" qué día estamos viendo
+# 3. LÓGICA DE NAVEGACIÓN
 if 'fecha_consulta' not in st.session_state:
     st.session_state.fecha_consulta = datetime.now().date()
 
 def set_fecha(nueva_fecha):
     st.session_state.fecha_consulta = nueva_fecha
 
-# 4. HEADER Y BARRA DE FILTROS (Ayer, Hoy, Mañana)
+# 4. UI - HEADER Y FILTROS
 st.markdown('<div class="main-header"><div class="logo">STATS<span>BET</span></div></div>', unsafe_allow_html=True)
 
-# Creamos los 3 botones superiores
 col1, col2, col3 = st.columns(3)
 with col1:
     if st.button("⏪ AYER", use_container_width=True):
@@ -67,12 +79,13 @@ with col3:
     if st.button("⏩ MAÑANA", use_container_width=True):
         set_fecha(datetime.now().date() + timedelta(days=1))
 
-# Dentro del bloque de petición a la API
+# 5. PETICIÓN A LA API
 fecha_str = st.session_state.fecha_consulta.strftime("%Y-%m-%d")
-url = f"http://10.100.68.12:8000/predictions/calendar?target_date={fecha_str}"
+full_api_url = f"{base_url}/predictions/calendar?target_date={fecha_str}"
 
 try:
-    res = requests.get(url)
+    # Timeout de 5 segundos para que la app no se quede colgada si tu VM está apagada
+    res = requests.get(full_api_url, timeout=5)
     
     if res.status_code == 200:
         data = res.json()
@@ -84,11 +97,13 @@ try:
             for p in partidos:
                 render_game_card(p)
     else:
-        # Esto te dirá si el error es 404 (No encontrado) o 500 (Error interno)
-        st.error(f"Error de la API: Código {res.status_code}")
-        st.json(res.json()) # Muestra el detalle del error que envía FastAPI
+        st.error(f"⚠️ Error de la API (Código {res.status_code})")
+        with st.expander("Ver detalle del error"):
+            st.json(res.json())
 
+except requests.exceptions.ConnectTimeout:
+    st.error(f"❌ Tiempo de espera agotado. La API en {base_url} no responde.")
 except requests.exceptions.ConnectionError:
-    st.error("❌ No se pudo conectar con el servidor. ¿Está encendido uvicorn?")
+    st.error(f"❌ Conexión rechazada. Verifica que Uvicorn esté corriendo en {base_url}")
 except Exception as e:
     st.error(f"❌ Error inesperado: {e}")

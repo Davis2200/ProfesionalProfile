@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 
 def generar_dataset_bancario(n_clientes=120000):
     np.random.seed(42) # Para que puedas replicar los resultados
@@ -55,7 +56,23 @@ def generar_dataset_bancario(n_clientes=120000):
 # Ejecución y guardado
 if __name__ == "__main__":
     df_banca = generar_dataset_bancario()
-    df_banca.to_csv('banca_transacciones.csv', index=False)
+    
+    # 1. Obtener la ruta absoluta de la carpeta 'src' donde vive este script
+    dir_actual = os.path.dirname(os.path.abspath(__file__))
+    
+    # 2. Subir un nivel al directorio raíz del proyecto y entrar a 'data'
+    carpeta_data = os.path.join(dir_actual, "..", "data")
+    
+    # 3. Asegurar que la carpeta 'data' exista (si no existe, la crea)
+    os.makedirs(carpeta_data, exist_ok=True)
+    
+    # 4. Construir la ruta final completa para el CSV
+    ruta_salida = os.path.join(carpeta_data, "banca_transacciones.csv")
+    
+    # 5. Guardar el dataset de manera segura
+    df_banca.to_csv(ruta_salida, index=False)
+    
     print(f"Dataset generado con {len(df_banca)} registros.")
-    print("Distribución de Fuga:")
+    print(f"Guardado exitosamente en: {os.path.abspath(ruta_salida)}")
+    print("\nDistribución de Fuga:")
     print(df_banca.drop_duplicates('id_cliente')['target_fuga'].value_counts(normalize=True))

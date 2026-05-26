@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta Light Technical Modern */
+  --color-brand-bg: #F8FAFC;      /* Slate 50: Fondo aireado y limpio */
+  --color-brand-surface: #FFFFFF; /* Superficie pura para tarjetas */
+  --color-brand-text: #0F172A;    /* Slate 900: Contraste máximo para ciencia */
+  --color-brand-action: #4F46E5;  /* Indigo 600: Acción profesional */
+  --color-brand-ethics: #059669;  /* Emerald 600: Responsabilidad ética */
+  
+  --radius-technical: 12px;       /* Consistencia según ISO 9241-110 [6] */
+  --shadow-soft: 0 4px 20px rgba(15, 23, 42, 0.05); /* Sombra sutil de profundidad */
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text antialiased selection:bg-brand-action/10;
+    font-family: 'Inter', system-ui, sans-serif; /* Familiaridad: Ley de Jakob [7] */
+  }
+}
+
+@layer components {
+  .btn-technical {
+    @apply bg-brand-action text-white font-bold py-4 px-8 rounded-technical
+           transition-all duration-[var(--transition-fast)] hover:brightness-110
+           active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-brand-action/20;
+    min-height: 48px; /* Ley de Fitts: Objetivo táctil fácil de adquirir [8] */
+  }
+}

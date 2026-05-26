@@ -1,40 +1,55 @@
-# Banking Churn Predictive System
+# David Nava Aguilar | Data Scientist & Analytics Specialist
+### Bridging Data Governance, Engineering, and Business Intelligence
 
-## Executive Summary
-As a Data Science candidate from Instituto Politécnico Nacional (IPN), I am building a high-impact portfolio that bridges hands-on operational reliability from Conduent Solutions with predictive analytics. I transformed field-level incident reports and hardware preventive maintenance concepts into risk modeling workflows for customer portfolio stability. This project demonstrates my appetite for data-driven decision-making and my ability to translate domain knowledge into measurable business outcomes.
+Welcome to my professional profile. I am a **Data Science student at IPN** (6th semester) focused on creating data-driven solutions that are not only mathematically sound but also strategically actionable. My approach integrates **Data Governance (ISO 8000/25012)** with advanced analytics to ensure high-quality, reliable insights.
 
-## The Business Challenge
-Customer churn is a leading cost driver for banking operations. Lost customers generate revenue leakage, higher acquisition costs, and impaired lifetime value. This project addresses the challenge with a structured ML solution that detects high-risk accounts early, enabling prioritized retention campaigns and reduced attrition costs.
+---
 
-## Data Engineering
-- Data source: customer transaction and account lifecycle data.
-- Feature engineering:
-  - Recency/frequency/monetary (RFM) behavior embeddings.
-  - Balance trend time-series features (7/30/90-day deltas, exponential moving averages).
-  - Ownership signals, product holding, and support interaction frequency.
-- Data cleaning: missing value handling, outlier capping, and target leakage filters.
-- Scaling: `StandardScaler` applied to continuous features to align model gradients and prevent scale-driven weights.
-- Pipeline: `sklearn.pipeline.Pipeline` with imputation, scaling, and model to support reproducible scoring and deployment.
+## 🚀 About Me
+- **Experience:** 2+ years at **Conduent Solutions**, transforming operational data into business-critical diagnostics.
+- **Specialization:** End-to-end Data Life Cycle management, from automated ingestion to predictive modeling and visualization.
+- **Tech Transition:** Currently migrating my portfolio ecosystem to **Next.js** for high-performance delivery and improved UX.
 
-## Model Performance
-- Primary evaluation metrics:
-  - ROC-AUC: **0.85**
-  - F1-Score: **0.75**
-- The model is tuned for balanced precision and recall in imbalance settings (churn < 25%).
-- Why realistic metrics beat perfect accuracy:
-  - `Accuracy = 1.00` on churn typically indicates overfitting, class imbalance bias, or data leakage.
-  - ROC-AUC and F1 are robust to imbalance and focus on separability and practical classification tradeoffs.
-  - Business value is defined by correct identification of churn risk (true positives) and minimizing low-value outreach (false positives).
+---
 
-## Interactive Deployment
-[🚀 Launch Live Risk Simulator](https://profesionalprofile-lynq92g5zrq4uyvv4mce3p.streamlit.app/)
+## 🛠️ Technical Stack
+*   **Languages:** Python (Pandas, Scikit-learn, XGBoost), SQL, R.
+*   **Data Engineering:** Power Automate, Apache Spark, Docker, Data Governance (ISO Standards).
+*   **Visualization:** Power BI (Expert), Plotly, Streamlit, Next.js.
+*   **Methodologies:** CRISP-DM, Agile, Predictive Analytics.
 
-## Technical Stack
-- Python 3.11
-- pandas, numpy, scikit-learn, xgboost
-- Plotly for interactive diagnostics
-- Streamlit for rapid proof-of-concept deployment
-- GitHub Actions for CI/CD and model validation
+---
 
-## Contact
-Validate model decisions with business KPIs, then iterate with A/B-based retention experiments. Reach me at `davis2200 (GitHub profile)`.
+## 📂 Featured Projects
+
+### 🏦 Banking Churn Prediction System
+**Focus:** Risk Mitigation & Customer Retention
+*   **Problem:** High acquisition costs vs. retention value in the banking sector.
+*   **Solution:** Built a predictive engine using **XGBoost** to identify early churn signals.
+*   **Impact:** Achieved a **ROC-AUC of 0.85** and an **F1-Score of 0.75**.
+*   **Deployment:** Interactive risk simulator built with **Streamlit** for real-time sensitivity analysis.
+
+### 🍎 Prosperous Apples (Agricultural Analytics)
+**Focus:** Clustering & Yield Optimization
+*   **Solution:** Developed a clustering model to optimize agricultural production cycles.
+*   **Impact:** Reached **80% accuracy** in classification, providing actionable insights for resource allocation.
+
+---
+
+## 🏀 Discipline & Philosophy
+My work is driven by the same discipline I apply as a **basketball player**:
+*   **Resilience:** Solving complex "wicked problems" through iteration [4].
+*   **Teamwork:** Collaborating across functional areas to drive revenue and efficiency [5, 6].
+*   **Growth:** Constant evolution through senderism, cycling, and continuous technical learning.
+
+---
+
+## 📫 Connect with me
+- **LinkedIn:** [linkedin.com/in/davidnavaaguilar](https://www.linkedin.com/in/davidnavaaguilar)
+- **Email:** [Your Professional Email]
+- **Portfolio Web:** [Link to your Next.js site]
+
+---
+*"Data Science is about turning numbers into stories that move businesses forward."*
+
+

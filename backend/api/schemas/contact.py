@@ -1,19 +1,24 @@
-from pydantic import BaseModel, Field, EmailStr, ConfigDict
+import datetime
+from pydantic import BaseModel, Field, EmailStr
 from typing import Optional
+from uuid import UUID
+from datetime import datetime
 
+# Este sí lo está encontrando
 class ContactSubmissionCreate(BaseModel):
-    # Postel's Law: Capturamos valores 'raw' para normalizarlos [3]
-    raw_name: str = Field(..., min_length=2)
-    raw_email: str
-    message: str = Field(..., max_length=1000)
-    
-    # Soporte OAuth para evitar formularios manuales [10]
-    oauth_provider: Optional[str] = None # 'github' o 'linkedin'
-    oauth_subject: Optional[str] = None
+    name: str
+    email: EmailStr
+    message: str
+    integrity_badge_version: UUID
 
+# =============== ASEGÚRATE DE QUE ESTO EXISTA ==============
 class ContactSubmissionOut(BaseModel):
     id: str
-    status: str = "received"
-    message: str = "¡Gracias! Tu mensaje ha sido procesado con integridad [9]."
+    name: str
+    email: EmailStr
+    message: str
+    created_at: datetime
     
-    model_config = ConfigDict(from_attributes=True)
+
+    class Config:
+        from_attributes = True  # O orm_mode = True si usas Pydantic v1

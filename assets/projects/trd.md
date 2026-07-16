@@ -25,7 +25,7 @@ Inyección de Dependencias (DI): Se utilizará el sistema Depends de FastAPI par
 3. Estrategia de Frontend (Next.js 15+)
 El frontend debe materializar el Efecto de Estética-Usabilidad
 :
-Diseño Visual (Aurora Evolved): Implementación de colores en formato OKLCH para una consistencia cromática superior y efectos de Glassmorphism en las tarjetas de proyectos
+Diseño Visual (Aurora Evolved): Implementación de colores en formato OKLCH para una visualización cromática superior y efectos de Glassmorphism en las tarjetas de proyectos
 .
 Optimización de Carga: Uso de Skeleton Screens y la técnica Blur-up para imágenes, asegurando un LCP < 2.5s
 .
@@ -53,6 +53,9 @@ Graceful Shutdown: El backend implementará manejadores de señales para cerrar 
 Documentación de API: FastAPI generará automáticamente la documentación OpenAPI (Swagger), la cual se configurará para ser visible solo en entornos de desarrollo
 .
 Mitigación de DoS: Se debe asegurar el uso de python-multipart versión 0.0.27 o superior para evitar vulnerabilidades de CPU por headers ilimitados en la carga de archivos o formularios
+.
+**Gobernanza Dinámica**: Se sustituye el texto estático del badge por una carga asíncrona. El frontend debe tratar el Badge como un componente que depende de un estado de servidor (Server Component) para optimizar el SEO y la consistencia.
+**Trazabilidad Legal**: El backend orquestará la validación conservadora comparando la versión enviada por el cliente contra las versiones activas en la base de datos.
 .
 6. Criterios de Aceptación (KPIs Técnicos)
 Rendimiento: Puntuación de Lighthouse Performance ≥ 90

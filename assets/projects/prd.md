@@ -3,7 +3,7 @@
 
 | | |
 |---|---|
-| **Versión** | 1.0 |
+| **Versión** | 1.1 |
 | **Autor** | Product Owner & Requirements Architect |
 | **Fecha** | Julio 2026 |
 | **Estado** | Draft para revisión de stakeholders |
@@ -71,7 +71,7 @@ Formato: **Como** [rol], **quiero** [acción], **para** [beneficio].
 - **US-10**: Como visitante, quiero conocer un poco del lado personal del propietario (básquet, música), para generar una conexión humana más allá de lo técnico.
 - **US-11**: Como visitante, quiero escuchar un reproductor de audio integrado sin que se interrumpa mi navegación, para tener una experiencia continua y sin fricciones.
 - **US-12**: Como visitante interesado, quiero completar un formulario conversacional simple, para contactar al propietario dejando una sensación final de control y satisfacción.
-- **US-13**: Como visitante preocupado por su privacidad, quiero ver un "Badge de Integridad" que explique el manejo de mis datos, para confiar en enviar mi información de contacto.
+- **US-13**: Como visitante preocupado por su privacidad, quiero ver un "Badge de Integridad" dinámico que explique el manejo transparente y versionado de mis datos, para confiar en enviar mi información de contacto.
 
 ---
 
@@ -102,15 +102,12 @@ Formato: **Como** [rol], **quiero** [acción], **para** [beneficio].
 - RF-5.1: Reproductor de audio embebido con controles persistentes (mini-player) que no se detiene al navegar entre secciones (continuidad espacial vía estado global o `position: sticky`/Web Audio API).
 - RF-5.2: Sección personal debe incluir referencias a intereses (básquet, música) de forma minimalista (íconos + texto breve, sin saturar).
 
-### RF-6 Formulario de Contacto
+### RF-6 Formulario de Contacto y Gobernanza
 - RF-6.1: Formulario conversacional (estilo chat/paso a paso), aplicando el **Peak-End Rule** — el último paso debe incluir una confirmación visual satisfactoria (animación de éxito).
 - RF-6.2: **Postel's Law** — el campo de entrada debe aceptar formatos libres (ej. número de teléfono con o sin guiones, nombre con o sin apellido), pero la validación backend debe ser estricta antes de aceptar el envío.
 - RF-6.3: Los canales de contacto alternativos deben limitarse a **3 opciones** (LinkedIn, GitHub, WhatsApp) — aplicación directa de **Hick's Law**.
 - RF-6.4: Debe mostrarse un **Badge de Integridad** (Governance by Design) visible cerca del formulario, con texto explicando cómo se procesan y almacenan los datos del visitante.
-
-### RF-7 Micro-interacciones
-- RF-7.1: Todos los botones deben tener feedback táctil de **150ms** (escala 0.98) al presionar/hacer clic.
-- RF-7.2: Las transiciones de estado (hover, focus, active) deben ser consistentes en todo el sitio.
+- RF-6.5 Versionamiento de Consentimiento: El sistema debe servir el contenido del Badge de Integridad de forma dinámica desde el API y registrar la versión visualizada por el usuario al momento de enviar el formulario.
 
 ---
 
@@ -125,7 +122,7 @@ Formato: **Como** [rol], **quiero** [acción], **para** [beneficio].
 | **Responsividad** | Diseño mobile-first; Bento Grid y Glassmorphism deben degradar correctamente en viewports pequeños. |
 | **Compatibilidad** | Soporte en las últimas 2 versiones de Chrome, Safari, Firefox y Edge. |
 | **Mantenibilidad** | Componentes reutilizables documentados (Storybook opcional) para tokens de diseño (colores OKLCH, tipografía). |
-| **Privacidad** | Cumplimiento con principios de Governance by Design: minimización de datos recolectados en el formulario y comunicación clara de su uso (Badge de Integridad). |
+| **Privacidad** | Cumplimiento con principios de Governance by Design: minimización de datos recolectados en el formulario y comunicación clara de su uso (Badge de Integridad) enlazado a auditoría de versiones. |
 
 ---
 
@@ -170,6 +167,7 @@ Formato: **Como** [rol], **quiero** [acción], **para** [beneficio].
 - [ ] Al completar el envío exitoso, se muestra una confirmación con refuerzo positivo (Peak-End Rule).
 - [ ] Se muestran exactamente 3 canales de contacto alternativos: LinkedIn, GitHub, WhatsApp.
 - [ ] El Badge de Integridad es visible sin necesidad de scroll adicional en la sección de contacto.
+- [ ] **CA-6.6 Trazabilidad**: Cada entrada en la base de datos de contactos debe estar vinculada a una versión específica de la política de privacidad vigente en el badge.
 
 ### CA-7 — Rendimiento
 - [ ] Lighthouse Performance Score ≥ 90 en desktop y ≥ 80 en mobile.
@@ -194,7 +192,7 @@ Formato: **Como** [rol], **quiero** [acción], **para** [beneficio].
 | Glassmorphism + Deep Dive de proyectos | **Must have** |
 | Demo interactivo Stripe/FastAPI | **Should have** |
 | Reproductor de audio persistente | **Should have** |
-| Badge de Integridad | **Should have** |
+| Badge de Integridad Dinámico y Versionado | **Should have** |
 | Animación de logo SVG (2.2s) | **Could have** |
 | Micro-interacciones de 150ms en todos los botones | **Could have** |
 

@@ -1,1 +1,27 @@
 python-multipart >= 0.0.27
+
+# --- Núcleo de la API (TRD §2) ---
+fastapi[standard]          # Framework principal y servidor Uvicorn de alto rendimiento [1, 2]
+pydantic>=2.0.0            # Validación de datos y tipado fuerte (Ley de Postel) [1, 3]
+pydantic-settings          # Gestión de variables de entorno desacopladas [4, 5]
+python-multipart>=0.0.27   # Manejo de formularios (Versión crítica para mitigar DoS) [1, 6]
+
+# --- Base de Datos y Persistencia (TRD §1) ---
+supabase                   # Cliente oficial para Supabase (PostgreSQL + Auth) [1, 7]
+sqlalchemy>=2.0.0          # ORM para lógica SQL-first y manejo de sesiones async [8]
+alembic                    # Gestión de migraciones de base de datos [9, 10]
+
+# --- Integraciones de Acto III y IV (TRD §4) ---
+stripe                     # SDK para el demo de E-commerce interactivo [1, 11]
+resend                     # Comunicaciones transaccionales y notificaciones [1, 7]
+
+# --- Utilidades y Seguridad ---
+python-jose[cryptography]  # Manejo y validación de tokens JWT (OAuth 2.0) [1, 12]
+passlib[bcrypt]            # Hashing de seguridad si se requiere persistencia local [12]
+httpx                      # Cliente HTTP para tests de integración y llamadas internas [13, 14]
+
+# --- Testing y Calidad (TRD §6) ---
+pytest                     # Framework de pruebas unitarias y de integración [13]
+pytest-asyncio             # Soporte para tests asíncronos [14]
+pytest-cov                 # Medición de cobertura de código [13]
+ruff                       # Linter y formateador de alto rendimiento para el Tech Lead [15]

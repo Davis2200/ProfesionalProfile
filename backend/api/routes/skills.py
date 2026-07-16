@@ -1,3 +1,4 @@
+from fastapi import APIRouter, Depends, HTTPException, status
 from typing import List
 from supabase import Client
 from ..crud.skills import get_skills_grouped

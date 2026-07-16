@@ -1,48 +1,47 @@
 import type { Metadata } from "next";
-import { Fredoka, Nunito } from "next/font/google";
+import { Fredoka, Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/header";
+import AudioPlayer from "@/components/layout/audio_player";
+import { cn } from "@/lib/utils";
 
-// Tipografía: Equilibrio entre amigabilidad y autoridad
-const fontDisplay = Fredoka({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-display",
-});
-
-const fontSans = Nunito({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-sans",
-});
+// Configuración de tipografía según TRD
+const fontDisplay = Fredoka({ subsets: ["latin"], variable: "--font-display" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "David Nava Aguilar | Data & Code",
   description: "Arquitectura de Experiencias Sensoriales y Modelado de Datos",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+// Función asíncrona interna para recuperar de forma segura la versión del Badge activo
+async function getActiveBadgeId(): Promise<string> {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/integrity-badge`, {
+      next: { tags: ["governance"] } // Etiqueta para revalidación bajo demanda
+    });
+    if (!res.ok) return "";
+    const data = await res.json();
+    return data.id; // Retorna el UUID requerido para la trazabilidad de consentimiento
+  } catch {
+    return ""; // Fallback elegante en caso de que el backend esté apagado temporalmente
+  }
+}
+
+// Convertimos RootLayout a async para poder usar await arriba
+export default async function RootLayout({ children }: { readonly children: React.ReactNode }) {
+  const badgeId = await getActiveBadgeId();
+
   return (
-    <html lang="es" className={`${fontDisplay.variable} ${fontSans.variable} scroll-smooth`}>
-      <body className="antialiased selection:bg-[var(--color-rosa-vibrante)] selection:text-white">
-        {/* Acto II: Navegación Persistente (Jakob's Law) */}
-        <header className="fixed top-0 w-full z-50 backdrop-blur-xl bg-[var(--color-glass-surface)] border-b border-[var(--color-glass-border)]">
-          <nav className="container mx-auto px-6 h-16 flex items-center justify-between">
-            <span className="font-display font-black text-2xl tracking-tighter">
-              D<span className="text-[var(--color-rosa-vibrante)]">N</span>.
-            </span>
-            <ul className="flex gap-8 text-sm font-bold text-[var(--color-foreground)]">
-              <li><a href="#genesis" className="hover:text-[var(--color-violeta-seguridad)] transition-colors">Inicio</a></li>
-              <li><a href="#skills" className="hover:text-[var(--color-violeta-seguridad)] transition-colors">Expertise</a></li>
-              <li><a href="#projects" className="hover:text-[var(--color-violeta-seguridad)] transition-colors">Evidencia</a></li>
-            </ul>
-          </nav>
-        </header>
+    <html lang="es" className={cn("scroll-smooth", "font-sans", inter.variable)}>
+      <body className={`${fontDisplay.variable} ${inter.variable} font-sans antialiased bg-[oklch(0.99_0.01_235)] text-[var(--color-foreground)]`}>
+        <Header />
         
+        {/* El contenido dinámico de tus páginas */}
         <main>{children}</main>
+        
+        {/* El reproductor de audio se mantiene al final para persistencia sonora global */}
+        <AudioPlayer />
       </body>
     </html>
   );

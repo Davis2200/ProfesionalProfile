@@ -5,7 +5,9 @@ Basado en `trd.md`, `prd.md` y `flujo.md`. Arquitectura desacoplada:
 
 ## Contenido de este entregable
 
+
 ```
+
 portfolio-backend-schema/
 ├── database/
 │   └── schema.sql          # DDL completo para Supabase (tablas, enums, RLS, triggers)
@@ -17,13 +19,16 @@ portfolio-backend-schema/
 │       ├── stripe_demo.py     # RF-4.4 Demo e-commerce sandbox
 │       └── contact.py         # RF-6 Formulario + Postel's Law + Badge de Integridad
 └── README.md
+
 ```
 
 ## Estructura recomendada del backend completo (app/)
 
 Siguiendo TRD §2 ("diseño basado en dominios"):
 
+
 ```
+
 app/
 ├── main.py                     # instancia FastAPI, middlewares, CORS, lifespan (graceful shutdown)
 ├── core/
@@ -49,13 +54,14 @@ app/
 │   ├── resend_service.py        # BackgroundTasks -> email de agradecimiento
 │   └── validators.py            # normalización teléfono/email (Postel's Law)
 └── api/
-    └── v1/
-        ├── hero.py               # GET /api/v1/hero
-        ├── skills.py             # GET /api/v1/skills
-        ├── projects.py           # GET /api/v1/projects, GET /api/v1/projects/{slug}
-        ├── stripe_demo.py        # POST /api/v1/checkout/session
-        ├── contact.py            # POST /api/v1/contact
-        └── integrity.py          # GET /api/v1/integrity-badge
+└── v1/
+├── hero.py               # GET /api/v1/hero
+├── skills.py             # GET /api/v1/skills
+├── projects.py           # GET /api/v1/projects, GET /api/v1/projects/{slug}
+├── stripe_demo.py        # POST /api/v1/checkout/session
+├── contact.py            # POST /api/v1/contact
+└── integrity.py          # GET /api/v1/integrity-badge
+
 ```
 
 ## Endpoints principales sugeridos (RESTful, versión v1)
@@ -106,3 +112,16 @@ app/
 - Configurar Supabase Auth (OAuth GitHub/LinkedIn) y mapear `oauth_provider`/`oauth_subject`
   en `contact_submissions` cuando el visitante decida autenticarse en vez de llenar el
   formulario manualmente (TRD Acto IV, "Sin Fricción").
+
+## Ajustes en la definición de las tablas transaccionales
+
+### Tabla `integrity_badges`
+
+```sql
+CREATE TABLE integrity_badges (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    content TEXT NOT NULL,
+    version VARCHAR(50) NOT NULL UNIQUE,
+    is_active BOOLEAN DEFAULT false,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);

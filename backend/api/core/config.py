@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     SUPABASE_URL: str
     SUPABASE_ANON_KEY: str
     SUPABASE_SERVICE_ROLE_KEY: str
+    NEXT_PUBLIC_LINKEDIN_URL: str
+    NEXT_PUBLIC_GITHUB_URL: str
+    NEXT_PUBLIC_WHATSAPP_URL: str
     
     # Integraciones de Acto III y IV
     STRIPE_SECRET_KEY: str

@@ -37,13 +37,13 @@ export default async function RootLayout({ children }: { readonly children: Reac
     <html lang="es" className={cn("scroll-smooth", "font-sans", inter.variable)}>
       <body className={`${fontDisplay.variable} ${inter.variable} font-sans antialiased bg-[oklch(0.99_0.01_235)] text-[var(--color-foreground)]`}>
         <Header />
-        <WelcomeModal/>
+        
         
         {/* El contenido dinámico de tus páginas */}
         <main>{children}</main>
         
         {/* El reproductor de audio se mantiene al final para persistencia sonora global */}
-        <AudioPlayer />
+        <AudioPlayer /><WelcomeModal/>
       </body>
     </html>
   );

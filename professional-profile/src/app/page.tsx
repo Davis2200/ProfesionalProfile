@@ -6,7 +6,7 @@ import ProjectsSection from "@/components/acts/act3/projectSection";
 import ContactForm from "@/components/acts/act4/contactForm";
 import IntegrityBadge from "@/components/acts/act4/integrityBadge";
 import { IntegrityBadgeOut } from "@/types/governance";
-
+export const dynamic = 'force-dynamic';
 // Debe coincidir con el schema ProjectCardOut del backend (FastAPI)
 export interface ProjectCard {
   title: string;

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/header";
 import AudioPlayer from "@/components/layout/audio_player";
 import { cn } from "@/lib/utils";
+import WelcomeModal from "@/components/layout/welcome_modal";
 
 // Configuración de tipografía según TRD
 const fontDisplay = Fredoka({ subsets: ["latin"], variable: "--font-display" });
@@ -36,6 +37,7 @@ export default async function RootLayout({ children }: { readonly children: Reac
     <html lang="es" className={cn("scroll-smooth", "font-sans", inter.variable)}>
       <body className={`${fontDisplay.variable} ${inter.variable} font-sans antialiased bg-[oklch(0.99_0.01_235)] text-[var(--color-foreground)]`}>
         <Header />
+        <WelcomeModal/>
         
         {/* El contenido dinámico de tus páginas */}
         <main>{children}</main>

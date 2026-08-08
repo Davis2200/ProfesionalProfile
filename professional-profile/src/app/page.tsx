@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import Hero from "@/components/acts/act1/hero";
 import SkeletonHero from "@/components/acts/act1/skeletonHero";
 import BentoGrid from "@/components/acts/act2/bentoGrid";
-// 👇 Importamos el nuevo contenedor que acabas de crear
 import ProjectsSection from "@/components/acts/act3/projectSection"; 
 import ContactForm from "@/components/acts/act4/contactForm";
 import IntegrityBadge from "@/components/acts/act4/integrityBadge";

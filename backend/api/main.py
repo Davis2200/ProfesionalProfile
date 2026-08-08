@@ -1,11 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
-
-# Importaciones del núcleo (TRD §2)
 from .core.config import settings
 from .db.sessions import shutdown_db_connections
-from .routes import hero, skills, projects, contact, integrityBadge
+from .routes import hero, skills, projects, contact, integrityBadge, tracks
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -56,6 +54,7 @@ app.include_router(projects.router, prefix=settings.API_V1_STR)
 # Acto IV: Vínculo Humano & Gobernanza (Postel's Law)
 app.include_router(contact.router, prefix=settings.API_V1_STR)
 app.include_router(integrityBadge.router, prefix=settings.API_V1_STR)
+app.include_router(tracks.router, prefix=settings.API_V1_STR)   
 
 @app.get("/", tags=["Health"])
 async def root():

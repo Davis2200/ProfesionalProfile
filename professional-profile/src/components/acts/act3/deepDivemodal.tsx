@@ -24,6 +24,18 @@ export default function DeepDiveModal({ isOpen, onClose, slug }: DeepDiveModalPr
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Efecto para bloquear el scroll de la página principal cuando el modal está abierto
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     if (!isOpen || !slug) {
       setProject(null);
@@ -58,16 +70,17 @@ export default function DeepDiveModal({ isOpen, onClose, slug }: DeepDiveModalPr
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[5] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="glass-card max-w-2xl w-full bg-[var(--color-fondo-tranquilo)] border-[var(--color-rosa-vibrante)]"
+            className="glass-card max-w-2xl w-full max-h-[85vh] overflow-y-auto bg-[var(--color-fondo-tranquilo)] border-[var(--color-rosa-vibrante)]"
           >
-            <div className="flex justify-between items-start mb-8">
+            {/* Cabecera fija para que el título y botón de cierre no se oculten al hacer scroll */}
+            <div className="flex justify-between items-start mb-8 sticky top-0 bg-[var(--color-fondo-tranquilo)]/90 backdrop-blur pb-2 z-10">
               <h2 className="text-3xl font-display">{project?.title ?? "Cargando..."}</h2>
-              <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">✕</button>
+              <button onClick={onClose} className="p-2 hover:bg-black/5 rounded-full transition-colors">✕</button>
             </div>
 
             {loading && <p className="opacity-70 font-sans">Cargando detalles del proyecto...</p>}

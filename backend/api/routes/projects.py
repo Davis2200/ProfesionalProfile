@@ -10,7 +10,7 @@ from ..core.security import get_supabase
 # Importas tus configuraciones y el servicio que ya creaste
 from ..core.config import settings
 from ..services.stripe import StripeService  # Ajusta la ruta de importación si es necesario
-from ..schemas.stripe_demo import CheckoutSessionOut  # Asegúrate de importar tu esquema
+from ..schemas.stripe_demo import CheckoutSessionOut, CheckoutSessionCreate  # Asegúrate de importar tu esquema
 
 router = APIRouter(prefix="/projects", tags=["Projects"])
 
@@ -40,8 +40,12 @@ async def create_checkout(payload: CheckoutSessionOut, user_email: str = "demo@s
     """
     Endpoint que consume tu StripeService para generar la URL de la pasarela.
     """
-    return await StripeService.create_checkout_session(payload.product_ids, payload.success_url, payload.cancel_url, user_email)
-
+    return await StripeService.create_checkout_session(
+        product_ids=payload.product_ids,
+        success_url=payload.success_url,
+        cancel_url=payload.cancel_url,
+        user_email=user_email
+    )
 
 # ==========================================
 # NUEVO: ENDPOINT PARA EL WEBHOOK DE STRIPE

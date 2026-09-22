@@ -8,7 +8,7 @@ export default function StripeDemo() {
     setLoading(true);
     try {
       // Flujo real: Next.js -> FastAPI -> Stripe Test [4]
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/demo/checkout`, { method: 'POST' });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/projects/checkout`, { method: 'POST' });
       const { url } = await res.json();
       if (url) window.location.href = url;
     } catch (e) {

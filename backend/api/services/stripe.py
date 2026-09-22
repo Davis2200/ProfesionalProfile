@@ -1,5 +1,6 @@
 import stripe
 from typing import List
+from fastapi import HTTPException
 from ..core.config import settings
 from ..schemas.stripe_demo import CheckoutSessionOut
 
@@ -27,12 +28,15 @@ class StripeService:
                 } for item in items
             ]
 
+            # Definimos la URL base de tu frontend de forma segura
+            frontend_url = "https://davidnava.vercel.app"
+
             session = stripe.checkout.Session.create(
                 payment_method_types=["card"],
                 line_items=line_items,
                 mode="payment",
-                success_url=f"{settings.ALLOWED_HOSTS}/success?session_id={{CHECKOUT_SESSION_ID}}",
-                cancel_url=f"{settings.ALLOWED_HOSTS}/projects",
+                success_url=f"{frontend_url}/?success=true&session_id={{CHECKOUT_SESSION_ID}}",
+                cancel_url=f"{frontend_url}/?canceled=true",
                 customer_email=user_email,
                 metadata={"source": "The Tranquil Journey Portfolio"}
             )

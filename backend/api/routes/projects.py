@@ -36,17 +36,35 @@ async def read_project_detail(slug: str, db: Client = Depends(get_supabase)):
 # NUEVO: ENDPOINT PARA CREAR LA SESIÓN DE PAGO (RF-4.4)
 # ==========================================
 @router.post("/checkout", response_model=CheckoutSessionOut)
-async def create_checkout(payload: CheckoutSessionCreate, user_email: str = "demo@sandbox.com"):
+async def create_checkout(
+    payload: CheckoutSessionCreate, 
+    user_email: str = "demo@sandbox.com"
+):
     """
-    Endpoint que consume tu StripeService para generar la URL de la pasarela.
+    Endpoint que toma los datos del sandbox de Next.js, 
+    los transforma al formato que espera StripeService y retorna la sesión.
     """
-    return await StripeService.create_checkout_session(
-        product_ids=payload.product_ids,
-        success_url=payload.success_url,
-        cancel_url=payload.cancel_url,
-        user_email=user_email
-    )
+    try:
+        # Como tu servicio actual espera un diccionario con "name" y "price", 
+        # convertimos los product_ids del frontend en un item de prueba válido para Stripe:
+        demo_items = [
+            {
+                "name": "Demo Portafolio - Proyecto Sandbox",
+                "price": 10.00  # Precio fijo de prueba en USD ($10.00)
+            }
+        ]
 
+        # Invocamos tu StripeService pasando la estructura que sí reconoce
+        return await StripeService.create_checkout_session(
+            items=demo_items,
+            user_email=user_email
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, 
+            detail=f"Error al orquestar la pasarela: {str(e)}"
+        )
+    
 # ==========================================
 # NUEVO: ENDPOINT PARA EL WEBHOOK DE STRIPE
 # ==========================================

@@ -7,8 +7,18 @@ export default function StripeDemo() {
   const handleTestCheckout = async () => {
     setLoading(true);
     try {
-      // Flujo real: Next.js -> FastAPI -> Stripe Test [4]
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/projects/checkout`, { method: 'POST' });
+      const requestBody = {
+        product_ids: ["prod_demo_123"],
+        success_url: `${window.location.origin}/?success=true`,
+        cancel_url: `${window.location.origin}/?canceled=true`
+      };
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/projects/checkout`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
       const { url } = await res.json();
       if (url) window.location.href = url;
     } catch (e) {

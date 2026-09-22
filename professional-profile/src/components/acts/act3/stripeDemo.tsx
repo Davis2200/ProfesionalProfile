@@ -12,6 +12,7 @@ export default function StripeDemo() {
         success_url: `${window.location.origin}/?success=true`,
         cancel_url: `${window.location.origin}/?canceled=true`
       };
+      
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/projects/checkout`, {
         method: 'POST',
         headers: {
@@ -19,8 +20,18 @@ export default function StripeDemo() {
         },
         body: JSON.stringify(requestBody)
       });
-      const { url } = await res.json();
-      if (url) window.location.href = url;
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.error("Error de validación:", errorData);
+        return;
+      }
+
+      // CORRECCIÓN: Usar "checkout_url" tal como lo define CheckoutSessionOut
+      const data = await res.json();
+      if (data.checkout_url) {
+        window.location.href = data.checkout_url;
+      }
     } catch (e) {
       console.error("Error en el flujo de datos", e);
     } finally {

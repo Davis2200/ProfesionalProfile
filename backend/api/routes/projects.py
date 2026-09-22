@@ -36,11 +36,11 @@ async def read_project_detail(slug: str, db: Client = Depends(get_supabase)):
 # NUEVO: ENDPOINT PARA CREAR LA SESIÓN DE PAGO (RF-4.4)
 # ==========================================
 @router.post("/checkout", response_model=CheckoutSessionOut)
-async def create_checkout(items: List[dict], user_email: str = "demo@sandbox.com"):
+async def create_checkout(payload: CheckoutSessionOut, user_email: str = "demo@sandbox.com"):
     """
     Endpoint que consume tu StripeService para generar la URL de la pasarela.
     """
-    return await StripeService.create_checkout_session(items, user_email)
+    return await StripeService.create_checkout_session(payload.product_ids, payload.success_url, payload.cancel_url, user_email)
 
 
 # ==========================================

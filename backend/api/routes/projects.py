@@ -10,7 +10,7 @@ from ..core.security import get_supabase
 # Importas tus configuraciones y el servicio que ya creaste
 from ..core.config import settings
 from ..services.stripe import StripeService  # Ajusta la ruta de importación si es necesario
-from ..schemas.stripe_demo import CheckoutSessionOut, CheckoutSessionCreate  # Asegúrate de importar tu esquema
+from ..schemas.stripe_demo import CheckoutSessionCreate , CheckoutSessionOut # Asegúrate de importar tu esquema
 
 router = APIRouter(prefix="/projects", tags=["Projects"])
 
@@ -36,7 +36,7 @@ async def read_project_detail(slug: str, db: Client = Depends(get_supabase)):
 # NUEVO: ENDPOINT PARA CREAR LA SESIÓN DE PAGO (RF-4.4)
 # ==========================================
 @router.post("/checkout", response_model=CheckoutSessionOut)
-async def create_checkout(payload: CheckoutSessionOut, user_email: str = "demo@sandbox.com"):
+async def create_checkout(payload: CheckoutSessionCreate, user_email: str = "demo@sandbox.com"):
     """
     Endpoint que consume tu StripeService para generar la URL de la pasarela.
     """

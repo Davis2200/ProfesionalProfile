@@ -19,7 +19,7 @@ export default function Header() {
 
         {/* Hick's Law: 3 opciones máximas de contacto */}
         <div className="flex gap-4">
-          <a href="#" className="btn-action min-h-[44px] px-6 text-xs" style={{padding: '0.5rem 1rem'}}>LinkedIn</a>
+          <a href="https://www.linkedin.com/in/david-nava-aguilar-25777929a/" className="btn-action min-h-[44px] px-6 text-xs" style={{padding: '0.5rem 1rem'}}>LinkedIn</a>
         </div>
       </div>
     </header>

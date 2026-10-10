@@ -58,7 +58,7 @@ app.include_router(contact.router, prefix=settings.API_V1_STR)
 app.include_router(integrityBadge.router, prefix=settings.API_V1_STR)
 app.include_router(tracks.router, prefix=settings.API_V1_STR)   
 
-@app.api_route("/", methods=["HEAD"], tags=["Health"])
+@app.api_route("/", methods=["GET", "HEAD"], tags=["Health"])
 async def root():
     """Endpoint básico para validar que el viaje ha comenzado."""
     return {

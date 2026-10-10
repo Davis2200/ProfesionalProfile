@@ -1,0 +1,15 @@
+name: Keepalive Backend Ping
+
+on:
+  schedule:
+    # Se ejecuta cada 10 minutos
+    - cron: '*/2 * * * *'
+  workflow_dispatch: # Permite ejecutar el ping manualmente desde GitHub para probarlo
+
+jobs:
+  ping-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send HEAD request to backend
+        run: |
+          curl -I -s --max-time 15 "https://profesionalprofile.onrender.com" || true

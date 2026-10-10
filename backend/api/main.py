@@ -23,8 +23,8 @@ app = FastAPI(
     version=settings.VERSION,
     lifespan=lifespan,
     # Documentación condicional para evitar "Security through obscurity" innecesario (TRD §5)
-    openapi_url=settings.openapi_url,
-    docs_url=f"{settings.API_V1_STR}/docs" if settings.ENVIRONMENT == "development" else None,
+    openapi_url=None,
+    docs_url=None,
     redoc_url=None # ReDoc desactivado para minimizar ruido visual
 )
 
